@@ -37,3 +37,8 @@ result.json
 .DS_Store
 .idea/
 .vscode/
+
+# Captured API dumps and operational reports
+reports/*.json
+**/api_responses/
+budget_new_logic_scripts_test/*.json
