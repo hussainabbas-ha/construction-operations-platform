@@ -1,0 +1,149 @@
+Master Prompt — the construction operations platform Quantity Tracking Fix
+Copy everything below into a new chat.
+
+Role
+You are continuing work on the the construction operations platform repo at D:\CCRIPT_Agency\Gould-Construction. Preserve production quantity/budget/cron behavior unless the user explicitly asks to change it. Prefer isolated quantity_test experiments first.
+
+Project context
+HCSS-integrated Budget and Quantity dashboards. Budget drift was fixed. Quantity still drifts vs HCSS over time.
+
+Budget (already fixed in prod)
+Root cause: cron only refreshed last 7 days; dashboard sums daily rows; HCSS edits old transaction dates → stale rows.
+Fix: Layer A lookback + Layer B modifiedSince dirty dates on jobCosts / materialInstalled / subcontractWork.
+Files: scheduler/unified_cron_job.py, budget_tracking/hcss_client.py, api/database.py (SyncState), api/db_services.py.
+Quantity — two issues
+Issue 1 — Values drift; clear_quantity_cache.py temporarily “fixes”
+
+Cron writes daily keys (YYYY-MM-DD).
+Dashboard (api/routes/quantity_routes.py → get_or_fetch_quantity_for_period) uses period key start__end — frozen until miss/clear.
+Cron never refreshes period keys → stale range data.
+Issue 2 — Missing cost codes (not fixed yet — user said don’t fix)
+
+quantity_tracking/tracker.py: if planned <= 0: continue drops codes with installed > 0 but planned = 0.
+Recommended quantity architecture (validated on quantity_test)
+Daily rows only as source of truth.
+Dashboard/API sums installed_quantity by (job_id, cost_code_id) over the selected range.
+Drop long-lived start__end period cache as source of truth.
+Writer: active jobs (GET /v1/jobs status=active) → cost-code meta → POST costCode/progress/advancedRequest for that day only → SUM(quantity) — not timecard-only discovery.
+Keep Issue 2 filter for now (planned > 0 only) until user asks to change.
+HCSS Actual Qty rule: use SUM(progress["quantity"]) for the range — NOT toDateQuantity / cumulative fields.
+
+What was built (isolated — prod untouched)
+Piece	Path
+Table
+quantity_test in api/database.py
+DB helpers
+store_quantity_test, sum_quantity_test_for_period, etc. in api/db_services.py
+Populate
+scripts/populate_quantity_test.py
+Test API
+/api/quantity-test/verify and /count in api/routes/quantity_test_routes.py (registered in api/main.py)
+Compare script
+scripts/test_quantity_daily_vs_period.py
+Dirty via adjustments
+scripts/test_quantity_dirty_refresh.py, scripts/probe_quantity_adjustments.py
+Day-scan + overwrite
+scripts/find_and_refresh_stale_quantity_days.py
+jobCosts dirty probes
+scripts/test_quantity_jobcosts_dirty.py, scripts/probe_jobcosts_windows.py, scripts/probe_jobcosts_datespread.py
+Production: /api/quantity/*, cron quantity writer, quantity_tracking_* tables — unchanged.
+
+Experiment results (critical)
+A. Fresh daily-sum vs HCSS
+Populate + /api/quantity-test/verify for a range matches HCSS when data is freshly written. Proves daily-sum math + active-jobs writer.
+
+B. Overnight drift (user, May 1 → Jul 20)
+Yesterday matched; next day 13 discrepancies (HCSS > dashboard), e.g.:
+
+25006 / 80711111: HCSS 26557 vs DB 25257 (+1300)
+plus 12 smaller gaps on jobs 25006, 25069C, 26004, 25060CONST, 25048
+C. costTypeQuantities/adjustments?modifiedSince
+Always 0 rows (72h, May 1, Jul 1, Jul 7, and startDate/endDate May–Jul). Tenant does not use the web “quantity adjustments” feature. Unusable for dirty discovery.
+
+D. Day-by-day progress vs quantity_test
+Only 3 stale days: 2026-07-15, 2026-07-17, 2026-07-20.
+All 81 days were present (not a missing-day problem).
+Refreshing those 3 days → all 13 watchlist rows MATCH HCSS.
+
+Report: reports/quantity_stale_day_refresh_20260721_194824.json
+Summary: reports/QUANTITY_DIRTY_DATE_EXPERIMENT.md
+
+E. jobCosts/advancedRequest?modifiedSince (budget’s dirty channel)
+Docs: rows include quantity (“production quantity”) and entryType includes quantity.
+Known stale days do appear in the result set.
+But for this tenant, SyncTimestamp is effectively globally bumped:
+3h window → 60k+ rows, heavy HTTP 429
+5d window → 167k+ rows
+24h sample (30 pages): transaction dates from 2002-07-28 → 2026-07-20, ~3941 distinct dates across decades
+So modifiedSince ≈ “give me everything,” not “what changed.” Not a usable precise dirty detector.
+Report: reports/QUANTITY_JOBCOSTS_MODIFIEDSINCE_FINDINGS.md
+
+Side note: Budget Layer B uses the same unbounded jobCosts?modifiedSince pagination — likely also firehose/429-prone; review later, don’t change unless asked.
+
+Three HCSS channels — final scorecard
+Channel	modifiedSince?	This tenant
+costTypeQuantities/adjustments
+Yes
+0 rows
+jobCosts/advancedRequest
+Yes
+Firehose — covers dates but not precise/cheap
+costCode/progress/advancedRequest
+No
+Correct value source only
+→ No cheap precise “what quantity changed since T” API for this company.
+
+Recommended production quantity fix (not yet wired)
+Daily table + sum-on-read (validated via quantity_test).
+Writer: active jobs + per-day progress (validated).
+Cron Layer A: rolling lookback overwrite of last N days (recommend N=30; incident only needed ~6 days). Cost ≈ N × ~45 progress calls.
+Cron Layer B (safety): periodic full reconcile (weekly/nightly) of season — like populate_quantity_test.py --overwrite.
+Do not depend on adjustments or jobCosts modifiedSince for quantity dirty discovery in this tenant.
+Issue 2 (planned > 0 OR installed > 0) — still deferred.
+Switch /api/quantity/verify from period cache to daily sum only after lookback path is proven; keep old routes until then or feature-flag.
+How frontend would work after switch
+GET /api/quantity/verify?start_date&end_date → load daily rows in range → SUM installed by (job_id, cost_code_id) → recompute % → return same JSON shape. No period snapshot. Freshness from cron lookback/reconcile, not on every click.
+
+Key files (prod)
+quantity_tracking/tracker.py — current engine (timecard discovery + period progress)
+api/routes/quantity_routes.py — period cache via get_or_fetch_quantity_for_period
+api/db_services.py — store_quantity_tracking, get_or_fetch_quantity_for_period
+scheduler/unified_cron_job.py — quantity still lookback-only; budget has dirty Layer B
+scheduler/background_scheduler.py — cron every 3 hours
+clear_quantity_cache.py — manual period-cache clear
+Constraints from user
+Don’t change old quantity logic / production cron / old routes until validated.
+Don’t fix Issue 2 yet.
+Prefer test tables + test APIs + scripts for experiments.
+Compare against HCSS Cost Code Summary Actual Quantity for ranges.
+What’s done vs remaining
+Done
+
+Isolated quantity_test + populate + /api/quantity-test/*
+Proved daily-sum matches HCSS when fresh
+Proved overnight drift = stale recent days; overwrite fixes
+Proved adjustments dirty = useless here
+Proved jobCosts modifiedSince = firehose here
+Documented lookback + periodic reconcile as the path forward
+Remaining (when user asks)
+
+Wire lookback refresh into quantity-test (or a dedicated cron path) and validate for several days.
+Optionally add weekly full reconcile script/job for quantity_test.
+If stable: migrate prod writer to active-jobs daily; change /api/quantity to sum daily; stop writing/reading start__end as truth.
+Fix Issue 2 filter.
+Optionally audit budget modifiedSince firehose / 429 risk.
+Do not commit unless user asks.
+Useful commands
+# Populate test table
+python scripts/populate_quantity_test.py --start 2026-05-01 --end 2026-07-20 --overwrite
+# Read test API
+GET /api/quantity-test/verify?start_date=2026-05-01&end_date=2026-07-20
+# Find + refresh stale days (when adjustments empty)
+python scripts/find_and_refresh_stale_quantity_days.py
+Use project .venv (sqlalchemy / apscheduler needed).
+
+Current date context
+Conversation ran around 2026-07-20 / 2026-07-21. Comparison window often 2026-05-01 → 2026-07-20. Stale days that explained the incident: 2026-07-15, 2026-07-17, 2026-07-20.
+
+Ask the new agent
+Continue from here. Next preferred step (unless user says otherwise): implement lookback overwrite (N=30) for quantity_test only (script or isolated job), without changing production quantity routes/cron, then tell the user how to verify against HCSS for several days.

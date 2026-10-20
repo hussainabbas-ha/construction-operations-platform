@@ -1,0 +1,900 @@
+{
+  "status_code": 200,
+  "url": "https://api.hcssapps.com/heavyjob/api/v1/jobCostsToDate/search",
+  "response": {
+    "results": [
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "427f6649-fced-46a9-83a7-6d1e64c164a3",
+          "costCodeCode": "61300200C",
+          "costCodeDescription": "Furnish & Haul Class 6 - 2\" conduit"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 245.06,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 671.0,
+        "totalEquipmentHours": 10.0,
+        "totalLaborCost": 321.36,
+        "totalLaborHours": 19.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "acfcfe8d-d758-4746-bc36-8aa78c3c437e",
+          "costCodeCode": "61950960A",
+          "costCodeDescription": "Ex / Lay / BF Waterline 12\""
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 945.0,
+        "reworkQuantity": 20.0,
+        "totalEquipmentCost": 19200.54,
+        "totalEquipmentHours": 259.0,
+        "totalLaborCost": 25727.38,
+        "totalLaborHours": 819.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "0c0cbbb3-abb9-476e-9838-93ded0b5ee91",
+          "costCodeCode": "61950960B",
+          "costCodeDescription": "Extra Time - 4 Utility Crossings (12\" waterline)"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 2.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 229.81,
+        "totalEquipmentHours": 7.0,
+        "totalLaborCost": 1394.41,
+        "totalLaborHours": 49.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "71f59220-38bc-451f-869b-4655e19165f8",
+          "costCodeCode": "70400000",
+          "costCodeDescription": "TM Electric Vault"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 1.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 260.28,
+        "totalEquipmentHours": 4.5,
+        "totalLaborCost": 599.4,
+        "totalLaborHours": 20.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "e2e9e107-4701-4753-9378-84df0e1be631",
+          "costCodeCode": "61950480B",
+          "costCodeDescription": "Furnish & Haul Class 6 - 6\" Waterline"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 27.13,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 134.2,
+        "totalEquipmentHours": 2.0,
+        "totalLaborCost": 64.27,
+        "totalLaborHours": 2.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "38444470-e89a-46ba-bd90-0d81f7560d28",
+          "costCodeCode": "61300200B",
+          "costCodeDescription": "Lay 2\" Conduit"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 780.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 348.2,
+        "totalEquipmentHours": 6.0,
+        "totalLaborCost": 1165.24,
+        "totalLaborHours": 33.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "160f0994-aece-415e-bcaf-8d3d42d46942",
+          "costCodeCode": "62600000B",
+          "costCodeDescription": "Mob & Demob Equipment"
+        },
+        "foreman": {
+          "employeeId": "e3419c4d-071b-4442-80d7-a1009ffd4ead",
+          "employeeCode": "VICENCIOALFR",
+          "employeeFirstName": "Alfredo Vicencio",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 0.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 0.0,
+        "totalEquipmentHours": 0.0,
+        "totalLaborCost": 100.6,
+        "totalLaborHours": 4.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "31ae1253-184b-4829-885b-4909ff6c55bc",
+          "costCodeCode": "62305064",
+          "costCodeDescription": "12  INCH GATE VALVE"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 1.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 29.5,
+        "totalEquipmentHours": 0.5,
+        "totalLaborCost": 401.0,
+        "totalLaborHours": 13.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "57878622-1a61-44cd-a7c8-0bb256de4bb2",
+          "costCodeCode": "61950960E",
+          "costCodeDescription": "Haul and Dispose Dirt (12\" waterline)"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 640.5,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 2046.55,
+        "totalEquipmentHours": 30.5,
+        "totalLaborCost": 969.66,
+        "totalLaborHours": 40.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "bb744789-c98f-436d-ac1d-075cc12ab909",
+          "costCodeCode": "62305048",
+          "costCodeDescription": "6 INCH GATE VALVE"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 2.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 483.48,
+        "totalEquipmentHours": 5.0,
+        "totalLaborCost": 1050.69,
+        "totalLaborHours": 32.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "2306a529-ca7e-44b4-a89b-fa202896794d",
+          "costCodeCode": "20100005B",
+          "costCodeDescription": "Haul Off Debris"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 228.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 0.0,
+        "totalEquipmentHours": 0.0,
+        "totalLaborCost": 0.0,
+        "totalLaborHours": 20.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "9f6ecf65-4450-40d1-bfd1-e906bcf17b56",
+          "costCodeCode": "61978048D",
+          "costCodeDescription": "Haul and Dispose Dirt (fire hydrant)"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 60.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 335.5,
+        "totalEquipmentHours": 5.0,
+        "totalLaborCost": 160.68,
+        "totalLaborHours": 5.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "acfcfe8d-d758-4746-bc36-8aa78c3c437e",
+          "costCodeCode": "61950960A",
+          "costCodeDescription": "Ex / Lay / BF Waterline 12\""
+        },
+        "foreman": {
+          "employeeId": "e3419c4d-071b-4442-80d7-a1009ffd4ead",
+          "employeeCode": "VICENCIOALFR",
+          "employeeFirstName": "Alfredo Vicencio",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 0.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 0.0,
+        "totalEquipmentHours": 0.0,
+        "totalLaborCost": 314.37,
+        "totalLaborHours": 12.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "bdfb3cea-e86a-49ad-b65a-12a1acd8cca2",
+          "costCodeCode": "63000016B",
+          "costCodeDescription": "Flagging"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 8.8,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 0.0,
+        "totalEquipmentHours": 0.0,
+        "totalLaborCost": 2688.24,
+        "totalLaborHours": 102.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "6a3cd9f0-91e2-4415-91b3-2967b7db9658",
+          "costCodeCode": "62600000C",
+          "costCodeDescription": "PM / Superintendent"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 21.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 0.0,
+        "totalEquipmentHours": 0.0,
+        "totalLaborCost": 13706.51,
+        "totalLaborHours": 218.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "4d290091-68d9-429d-b699-a17ccb2251ff",
+          "costCodeCode": "61300600A",
+          "costCodeDescription": "Ex / Lay / BF 6\" Conduit"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 1520.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 285.68,
+        "totalEquipmentHours": 6.0,
+        "totalLaborCost": 1165.24,
+        "totalLaborHours": 33.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "33c5aacc-153f-4391-bc3d-bc583a70ca45",
+          "costCodeCode": "61950960D",
+          "costCodeDescription": "Furnish & Haul Class 6 (12\" waterline)"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 1961.28,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 8421.05,
+        "totalEquipmentHours": 125.5,
+        "totalLaborCost": 3938.68,
+        "totalLaborHours": 173.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "cd0edb29-d33c-4ab7-82cd-87831d8fe67f",
+          "costCodeCode": "20201000",
+          "costCodeDescription": "Sawing Asphalt Mat (6 In)"
+        },
+        "foreman": {
+          "employeeId": "e3419c4d-071b-4442-80d7-a1009ffd4ead",
+          "employeeCode": "VICENCIOALFR",
+          "employeeFirstName": "Alfredo Vicencio",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 80.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 0.0,
+        "totalEquipmentHours": 0.0,
+        "totalLaborCost": 111.78,
+        "totalLaborHours": 2.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "160f0994-aece-415e-bcaf-8d3d42d46942",
+          "costCodeCode": "62600000B",
+          "costCodeDescription": "Mob & Demob Equipment"
+        },
+        "foreman": {
+          "employeeId": "2f848d07-2d37-4c1b-9a0b-9d14729c5741",
+          "employeeCode": "SMEINSNICOLE",
+          "employeeFirstName": "Nicole MacLeod",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 0.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 536.8,
+        "totalEquipmentHours": 8.0,
+        "totalLaborCost": 257.09,
+        "totalLaborHours": 8.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "5fab91e2-4e32-4683-b720-b09de0889caa",
+          "costCodeCode": "61978048B",
+          "costCodeDescription": "Tees 90s & thrust Block (fire hydrant)"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 4.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 456.56,
+        "totalEquipmentHours": 5.0,
+        "totalLaborCost": 1342.68,
+        "totalLaborHours": 41.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "8c6cc7e6-7e32-4633-9fa5-16ba777347d7",
+          "costCodeCode": "70200000",
+          "costCodeDescription": "TM ex/lay/bf 2\" CBN"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 1600.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 285.68,
+        "totalEquipmentHours": 6.0,
+        "totalLaborCost": 1123.34,
+        "totalLaborHours": 31.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "65a09522-f8d2-4fd9-8754-6ddb67ba2310",
+          "costCodeCode": "20300000",
+          "costCodeDescription": "Potholing"
+        },
+        "foreman": {
+          "employeeId": "30978ea6-df96-4ab3-8655-fa7c0ecf4e4c",
+          "employeeCode": "KELLYKAI",
+          "employeeFirstName": "Kai Kelly",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 9.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 1890.0,
+        "totalEquipmentHours": 9.0,
+        "totalLaborCost": 226.35,
+        "totalLaborHours": 9.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "5b371e04-737c-412b-a37d-278453f85fae",
+          "costCodeCode": "70100000",
+          "costCodeDescription": "TM WL Rock Excavation"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 14.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 18617.9,
+        "totalEquipmentHours": 221.5,
+        "totalLaborCost": 17166.69,
+        "totalLaborHours": 561.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "81880709-c423-4a39-9f2d-07b3a720f8a3",
+          "costCodeCode": "61300300",
+          "costCodeDescription": "Ex / Lay / BF  Conduit 3\""
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 760.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 285.68,
+        "totalEquipmentHours": 6.0,
+        "totalLaborCost": 1165.24,
+        "totalLaborHours": 33.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "f812cfbd-7d45-45fc-a89b-90a2e1ab6d64",
+          "costCodeCode": "20100005A",
+          "costCodeDescription": "Removal of Debris"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 120.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 902.8,
+        "totalEquipmentHours": 8.0,
+        "totalLaborCost": 783.83,
+        "totalLaborHours": 21.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "eb0e671a-8d64-4ba1-adce-a28fcc5557db",
+          "costCodeCode": "61978048A",
+          "costCodeDescription": "Ex / Lay / BF Hydrant"
+        },
+        "foreman": {
+          "employeeId": "e3419c4d-071b-4442-80d7-a1009ffd4ead",
+          "employeeCode": "VICENCIOALFR",
+          "employeeFirstName": "Alfredo Vicencio",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 0.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 0.0,
+        "totalEquipmentHours": 0.0,
+        "totalLaborCost": 27.94,
+        "totalLaborHours": 0.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "eb0e671a-8d64-4ba1-adce-a28fcc5557db",
+          "costCodeCode": "61978048A",
+          "costCodeDescription": "Ex / Lay / BF Hydrant"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 2.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 423.23,
+        "totalEquipmentHours": 10.5,
+        "totalLaborCost": 1803.79,
+        "totalLaborHours": 56.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "160f0994-aece-415e-bcaf-8d3d42d46942",
+          "costCodeCode": "62600000B",
+          "costCodeDescription": "Mob & Demob Equipment"
+        },
+        "foreman": {
+          "employeeId": "b9f36580-a8a7-4718-a83b-597e55ea9e57",
+          "employeeCode": "SMITHSTEWART",
+          "employeeFirstName": "Stewart",
+          "employeeLastName": "Smith"
+        },
+        "totalQuantity": 0.31,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 603.9,
+        "totalEquipmentHours": 9.0,
+        "totalLaborCost": 289.22,
+        "totalLaborHours": 9.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "012c9042-ce28-4c7c-b485-9e27cddf341a",
+          "costCodeCode": "63000016A",
+          "costCodeDescription": "TC Management"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 3.25,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 112.86,
+        "totalEquipmentHours": 1.0,
+        "totalLaborCost": 1939.3,
+        "totalLaborHours": 38.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "2f569eac-971d-45db-b234-17422c61ccba",
+          "costCodeCode": "20204060A",
+          "costCodeDescription": "Earthwork - Cut to Fill"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 0.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 231.36,
+        "totalEquipmentHours": 4.0,
+        "totalLaborCost": 503.0,
+        "totalLaborHours": 18.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "65a09522-f8d2-4fd9-8754-6ddb67ba2310",
+          "costCodeCode": "20300000",
+          "costCodeDescription": "Potholing"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 2.2,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 177.0,
+        "totalEquipmentHours": 3.0,
+        "totalLaborCost": 1221.17,
+        "totalLaborHours": 43.5,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "5a8178a9-1ef4-426e-88eb-0fdc1f579438",
+          "costCodeCode": "62500000A",
+          "costCodeDescription": "Construction Surveying"
+        },
+        "foreman": {
+          "employeeId": "e3419c4d-071b-4442-80d7-a1009ffd4ead",
+          "employeeCode": "VICENCIOALFR",
+          "employeeFirstName": "Alfredo Vicencio",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 0.0,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 0.0,
+        "totalEquipmentHours": 0.0,
+        "totalLaborCost": 279.44,
+        "totalLaborHours": 5.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      },
+      {
+        "job": {
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "jobCode": "26004",
+          "jobDescription": "Hwy 6 & 24 Shared Path Improvements"
+        },
+        "costCode": {
+          "costCodeId": "b6052ccb-ad9f-43ca-96c2-de4b9d3f0d4d",
+          "costCodeCode": "61978048C",
+          "costCodeDescription": "Furnish & Haul Class 6 (fire hydrant)"
+        },
+        "foreman": {
+          "employeeId": "c9c72999-5bb1-41e6-a691-7c9eb1718175",
+          "employeeCode": "TENAARMON",
+          "employeeFirstName": "Armando E. Tena",
+          "employeeLastName": ""
+        },
+        "totalQuantity": 39.67,
+        "reworkQuantity": 0.0,
+        "totalEquipmentCost": 201.3,
+        "totalEquipmentHours": 3.0,
+        "totalLaborCost": 96.41,
+        "totalLaborHours": 3.0,
+        "totalMaterialCost": 0.0,
+        "totalSubcontractCost": 0.0,
+        "totalTruckingCost": 0.0
+      }
+    ],
+    "metadata": {}
+  }
+}

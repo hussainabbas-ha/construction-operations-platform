@@ -1,0 +1,342 @@
+"""
+projection_tracking/hcss_client.py
+────────────────────────────────────
+HCSS API wrapper for projection-specific data.
+
+Reuses HCSSClient (payroll_verification/hcss_client.py) for auth and
+low-level requests — same pattern as budget_tracking/hcss_client.py.
+
+Data gathered per active job:
+  1. Active job list  — discovered via timecard summaries (same as budget)
+  2. Job details      — contract value, billing to date, completion date
+  3. Cost to date     — from costCode/progress/advancedRequest
+  4. Budget           — from costCodes/advancedRequest (laborDollars + etc.)
+  5. Change orders    — from jobs/{job_id}/changeOrders (if endpoint exists)
+
+NEW FILE — part of the Projection Tracking module.
+No changes required to any existing file for this module.
+"""
+from __future__ import annotations
+
+import logging
+from typing import Any
+
+from payroll_verification.hcss_client import HCSSClient
+
+logger = logging.getLogger(__name__)
+
+
+class ProjectionHCSSClient:
+    """
+    Wrapper for HCSS projection-specific API calls.
+    Mirrors BudgetHCSSClient in budget_tracking/hcss_client.py.
+    """
+
+    def __init__(self, client: HCSSClient | None = None) -> None:
+        self.client = client or HCSSClient()
+        logger.debug("ProjectionHCSSClient initialized")
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
+    def fetch_projection_data(
+        self,
+        *,
+        month: str,
+    ) -> list[dict[str, Any]]:
+        """
+        Fetch all data required to calculate monthly projections.
+
+        Args:
+            month:  Target month in YYYY-MM format.
+                    We query from the 1st to the last day of that month.
+
+        Returns:
+            List of job-level dicts, each containing:
+                job_id, job_code, job_name, business_unit,
+                original_contract_value, approved_change_orders,
+                original_budget, actual_cost_to_date,
+                billed_to_date, estimated_completion_month
+
+        Raises:
+            RuntimeError: If a critical HCSS API call fails.
+        """
+        start_date, end_date = self._month_to_date_range(month)
+
+        logger.info(
+            "Fetching projection data: month=%s  (%s → %s)",
+            month, start_date, end_date,
+        )
+
+        # ── Step 1: Discover active jobs via timecards ────────────────
+        job_ids, job_map = self._discover_active_jobs(start_date, end_date)
+        if not job_ids:
+            logger.warning("No active jobs found for month=%s", month)
+            return []
+
+        # ── Step 2: Fetch job-level details (contract, billing) ───────
+        job_details = self._fetch_job_details(job_ids)
+
+        # ── Step 3: Fetch budget totals per job (cost codes) ──────────
+        job_budgets = self._fetch_job_budgets(job_ids)
+
+        # ── Step 4: Fetch actual cost to date per job ─────────────────
+        job_actual_costs = self._fetch_actual_costs(
+            job_ids, start_date, end_date
+        )
+
+        # ── Step 5: Combine into projection dicts ─────────────────────
+        results = self._combine(
+            job_ids=job_ids,
+            job_map=job_map,
+            job_details=job_details,
+            job_budgets=job_budgets,
+            job_actual_costs=job_actual_costs,
+            month=month,
+        )
+
+        logger.info(
+            "Projection data assembled: month=%s jobs=%d",
+            month, len(results),
+        )
+        return results
+
+    # ------------------------------------------------------------------
+    # Private helpers
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _month_to_date_range(month: str) -> tuple[str, str]:
+        """
+        Convert 'YYYY-MM' to ('YYYY-MM-01', 'YYYY-MM-<last_day>').
+        """
+        import calendar
+        year, mon = int(month[:4]), int(month[5:7])
+        last_day = calendar.monthrange(year, mon)[1]
+        return f"{month}-01", f"{month}-{last_day:02d}"
+
+    def _discover_active_jobs(
+        self, start_date: str, end_date: str
+    ) -> tuple[list[str], dict[str, str]]:
+        """
+        Fetch timecards for the month to discover active job IDs.
+        Returns (job_id_list, {job_id: job_code}).
+        Mirrors the same pattern used in budget_tracking/hcss_client.py.
+        """
+        try:
+            timecards = self.client.fetch_timecards(
+                start_date=start_date,
+                end_date=end_date,
+            )
+        except Exception as exc:
+            raise RuntimeError(
+                f"Failed to fetch timecards for projection: {exc}"
+            ) from exc
+
+        job_map: dict[str, str] = {}
+        for tc in timecards:
+            jid   = tc.get("jobId") or tc.get("job_id")
+            jcode = (
+                tc.get("jobCode")
+                or tc.get("job_code")
+                or tc.get("jobDescription")
+                or "Unknown"
+            )
+            if jid and jid not in job_map:
+                job_map[jid] = jcode
+
+        logger.info(
+            "Discovered %d active jobs from timecards (%s → %s)",
+            len(job_map), start_date, end_date,
+        )
+        return list(job_map.keys()), job_map
+
+    def _fetch_job_details(
+        self, job_ids: list[str]
+    ) -> dict[str, dict[str, Any]]:
+        """
+        Fetch job-level details using the POST /jobs/advanced endpoint.
+        Replaces the broken GET /jobs/{id} approach — HCSS only supports
+        bulk POST for job lookups.
+        """
+        if not job_ids:
+            return {}
+        try:
+            data = self.client._request(
+                "POST",
+                f"{self.client.heavyjob_base}/jobs/advanced",
+                json={"jobIds": job_ids},
+            )
+            job_list = data if isinstance(data, list) else data.get("results", [])
+        except Exception as exc:
+            logger.error("Failed to fetch job details via /jobs/advanced: %s", exc)
+            return {}
+
+        details: dict[str, dict[str, Any]] = {}
+        for job in job_list:
+            jid = job.get("id")
+            if jid:
+                details[jid] = job
+
+        logger.info("Fetched details for %d/%d jobs", len(details), len(job_ids))
+        return details
+
+    def _fetch_job_budgets(
+        self, job_ids: list[str]
+    ) -> dict[str, float]:
+        """
+        Fetch total budget per job by summing cost code budget fields.
+        Uses the same advancedRequest endpoint as budget_tracking/hcss_client.py.
+        Returns {job_id: total_budget_dollars}.
+        """
+        try:
+            raw = self.client._request(
+                "POST",
+                "https://api.hcssapps.com/heavyjob/api/v2/costCodes/advancedRequest",
+                json={"jobIds": job_ids, "limit": 500},
+            )
+            cost_codes = (
+                raw.get("results", []) if isinstance(raw, dict) else raw or []
+            )
+        except Exception as exc:
+            logger.error("Failed to fetch cost codes for budgets: %s", exc)
+            return {}
+
+        budgets: dict[str, float] = {}
+        for cc in cost_codes:
+            jid = cc.get("jobId") or cc.get("job_id")
+            if not jid:
+                continue
+            total = (
+                float(cc.get("laborDollars", 0) or 0)
+                + float(cc.get("equipmentDollars", 0) or 0)
+                + float(cc.get("materialDollars", 0) or 0)
+                + float(cc.get("subcontractDollars", 0) or 0)
+            )
+            budgets[jid] = budgets.get(jid, 0.0) + total
+
+        logger.info("Aggregated budgets for %d jobs", len(budgets))
+        return budgets
+
+    def _fetch_actual_costs(
+        self,
+        job_ids: list[str],
+        start_date: str,
+        end_date: str,
+    ) -> dict[str, float]:
+        """
+        Fetch total actual cost to date per job using the progress endpoint.
+        Uses 'toDateCost' (cumulative) rather than 'cost' (single-day).
+        Returns {job_id: total_actual_cost}.
+        """
+        actual_costs: dict[str, float] = {}
+
+        for jid in job_ids:
+            try:
+                raw = self.client._request(
+                    "POST",
+                    f"{self.client.heavyjob_base}/costCode/progress/advancedRequest",
+                    json={
+                        "jobId": jid,
+                        "startDate": f"{start_date}T00:00:00Z",
+                        "endDate": f"{end_date}T23:59:59Z",
+                        "limit": 500,
+                    },
+                )
+                progress_list = (
+                    raw.get("results", []) if isinstance(raw, dict) else raw or []
+                )
+
+                job_total = 0.0
+                for item in progress_list:
+                    # toDateCost = cumulative cost; use this for projections
+                    cost = float(
+                        item.get("toDateCost")
+                        or item.get("cost")
+                        or 0
+                    )
+                    job_total += cost
+
+                actual_costs[jid] = job_total
+
+            except Exception as exc:
+                logger.error(
+                    "Failed to fetch actual costs for job=%s: %s", jid, exc
+                )
+                continue
+
+        logger.info(
+            "Fetched actual costs for %d/%d jobs", len(actual_costs), len(job_ids)
+        )
+        return actual_costs
+
+    def _combine(
+        self,
+        *,
+        job_ids: list[str],
+        job_map: dict[str, str],
+        job_details: dict[str, dict[str, Any]],
+        job_budgets: dict[str, float],
+        job_actual_costs: dict[str, float],
+        month: str,
+    ) -> list[dict[str, Any]]:
+        """
+        Merge all fetched data into a list of projection dicts.
+        Each dict is consumed by calculate_projections() in analyzer.py.
+        """
+        combined: list[dict[str, Any]] = []
+
+        for jid in job_ids:
+            detail = job_details.get(jid, {})
+
+            job_code = detail.get("code") or job_map.get(jid, "Unknown")
+            job_name = detail.get("description") or job_code
+            business_unit = detail.get("businessUnitId") or "N/A"
+
+            # Contract value — try common HCSS field names
+            original_contract_value = float(
+                detail.get("originalContractAmount")
+                or detail.get("contractAmount")
+                or detail.get("sovTotal")
+                or detail.get("bidAmount")
+                or 0
+            )
+
+            # Approved change orders
+            approved_change_orders = float(
+                detail.get("approvedChangeOrderAmount")
+                or detail.get("changeOrderTotal")
+                or 0
+            )
+
+            # Billed to date
+            billed_to_date = float(
+                detail.get("billedToDate")
+                or detail.get("invoicedToDate")
+                or detail.get("amountBilled")
+                or 0
+            )
+
+            # Estimated completion
+            estimated_completion_month = (
+                detail.get("estimatedCompletionDate", "")[:7]  # YYYY-MM from YYYY-MM-DD
+                or month  # fallback to current month
+            )
+
+            combined.append(
+                {
+                    "job_id": jid,
+                    "job_code": job_code,
+                    "job_name": job_name,
+                    "business_unit": business_unit,
+                    "original_contract_value": original_contract_value,
+                    "approved_change_orders": approved_change_orders,
+                    "original_budget": job_budgets.get(jid, 0.0),
+                    "actual_cost_to_date": job_actual_costs.get(jid, 0.0),
+                    "billed_to_date": billed_to_date,
+                    "estimated_completion_month": estimated_completion_month,
+                }
+            )
+
+        return combined

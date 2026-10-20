@@ -1,0 +1,345 @@
+from __future__ import annotations
+
+import html
+import logging
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+from payroll_verification.verifier import TimecardResult
+
+logger = logging.getLogger(__name__)
+
+_MT = ZoneInfo("America/Denver")
+
+
+def _job_cell(r) -> str:
+    """Job code with its description underneath (if available)."""
+    label = html.escape(r.job_code)
+    desc = (getattr(r, "job_description", "") or "").strip()
+    if desc:
+        label += (
+            f'<br><span style="color:#6b7280;font-size:11px;">{html.escape(desc)}</span>'
+        )
+    return label
+
+
+def build_email_body(
+    results: list[TimecardResult],
+    report_date: str,
+) -> tuple[str, str]:
+    rejected = [r for r in results if r.status == "REJECTED"]
+    flagged = [r for r in results if r.status == "FLAGGED"]
+    approved_count = sum(1 for r in results if r.status == "APPROVED")
+    rejected_count = len(rejected)
+    flagged_count = len(flagged)
+    total_count = len(results)
+
+    logger.info(
+        "Building email body: date=%s total=%d rejected=%d flagged=%d approved=%d",
+        report_date,
+        total_count,
+        rejected_count,
+        flagged_count,
+        approved_count,
+    )
+
+    if rejected_count == 0 and flagged_count == 0:
+        subject = f"Time Log Verification Report — {report_date} | All Clear"
+    else:
+        subject = (
+            f"Time Log Verification Report — {report_date} | "
+            f"{rejected_count} Rejected, {flagged_count} Flagged"
+        )
+
+    logger.debug("Email subject: %s", subject)
+
+    now_str = datetime.now(_MT).strftime("%Y-%m-%d %H:%M %Z")
+
+    try:
+        parsed_date = datetime.strptime(report_date, "%Y-%m-%d")
+        display_date = parsed_date.strftime("%a, %b %d, %Y").replace(" 0", " ")
+    except ValueError:
+        display_date = report_date
+
+    if rejected_count == 0 and flagged_count == 0:
+        action_title = "All clear"
+        action_message = "All timecards passed verification. No action is required."
+        action_color = "#047857"
+        action_bg = "#ecfdf5"
+        action_border = "#a7f3d0"
+        action_badge_bg = "#d1fae5"
+        action_badge_text = "#065f46"
+    else:
+        action_title = "Action required"
+        action_message = (
+            f"{rejected_count} rejected timecard(s) need correction before processing. "
+            f"{flagged_count} flagged timecard(s) need review."
+        )
+        action_color = "#92400e"
+        action_bg = "#fffbeb"
+        action_border = "#fde68a"
+        action_badge_bg = "#fef3c7"
+        action_badge_text = "#92400e"
+
+    def _metric_card(
+        label: str,
+        value: int,
+        text_color: str,
+        gradient: str,
+        border_color: str,
+        padding_right: str = "12px",
+    ) -> str:
+        return (
+            f'<td style="width:33.33%;padding:0 {padding_right} 0 0;vertical-align:top;">'
+            f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+            f'style="width:100%;border-collapse:separate;border-spacing:0;background:{gradient};'
+            f'border:1px solid {border_color};border-radius:18px;overflow:hidden;">'
+            "<tr>"
+            '<td style="padding:18px 18px 16px 18px;font-family:Arial,Helvetica,sans-serif;">'
+            f'<div style="font-size:11px;line-height:16px;color:#6b7280;font-weight:800;'
+            f'text-transform:uppercase;letter-spacing:0.09em;">{html.escape(label)}</div>'
+            f'<div style="margin-top:10px;font-size:38px;line-height:42px;color:{text_color};'
+            f'font-weight:800;letter-spacing:-0.04em;">{value}</div>'
+            '<div style="margin-top:8px;width:34px;height:4px;border-radius:999px;'
+            f'background:{text_color};opacity:0.85;"></div>'
+            "</td>"
+            "</tr>"
+            "</table>"
+            "</td>"
+        )
+
+    summary_cards = (
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        'style="width:100%;border-collapse:collapse;margin:0 0 24px 0;">'
+        "<tr>"
+        + _metric_card(
+            "Rejected",
+            rejected_count,
+            "#dc2626",
+            "linear-gradient(135deg,#fff1f2 0%,#ffe4e6 45%,#ffffff 100%)",
+            "#fecdd3",
+        )
+        + _metric_card(
+            "Flagged",
+            flagged_count,
+            "#ea580c",
+            "linear-gradient(135deg,#fff7ed 0%,#ffedd5 45%,#ffffff 100%)",
+            "#fed7aa",
+        )
+        + _metric_card(
+            "Approved",
+            approved_count,
+            "#059669",
+            "linear-gradient(135deg,#ecfdf5 0%,#d1fae5 45%,#ffffff 100%)",
+            "#a7f3d0",
+            "0",
+        )
+        + "</tr>"
+        "</table>"
+    )
+
+    action_box = (
+        f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        f'style="width:100%;border-collapse:separate;border-spacing:0;margin:0 0 30px 0;'
+        f'background:{action_bg};border:1px solid {action_border};border-radius:18px;overflow:hidden;">'
+        "<tr>"
+        '<td style="padding:18px 20px;font-family:Arial,Helvetica,sans-serif;">'
+        f'<span style="display:inline-block;background:{action_badge_bg};color:{action_badge_text};'
+        f'font-size:11px;line-height:16px;font-weight:800;text-transform:uppercase;'
+        f'letter-spacing:0.08em;border-radius:999px;padding:5px 10px;margin:0 0 10px 0;">'
+        f"{html.escape(action_title)}</span>"
+        f'<div style="font-size:14px;line-height:22px;color:#374151;margin:0;">'
+        f"{html.escape(action_message)}</div>"
+        "</td>"
+        "</tr>"
+        "</table>"
+    )
+
+    def _status_pill(text: str, bg: str, color: str) -> str:
+        return (
+            f'<span style="display:inline-block;background:{bg};color:{color};'
+            f'font-size:11px;line-height:16px;font-weight:800;text-transform:uppercase;'
+            f'letter-spacing:0.06em;border-radius:999px;padding:5px 9px;">'
+            f"{html.escape(text)}</span>"
+        )
+
+    rejected_section = ""
+    if rejected_count > 0:
+        rows = []
+        for r in rejected:
+            reason = "; ".join(r.reasons) if r.reasons else "Rejected"
+            rows.append(
+                "<tr>"
+                f'<td style="padding:15px 16px;border-bottom:1px solid #eef2f7;'
+                f'font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;'
+                f'color:#111827;font-weight:800;">{_job_cell(r)}</td>'
+                f'<td style="padding:15px 16px;border-bottom:1px solid #eef2f7;'
+                f'font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;'
+                f'color:#111827;">{html.escape(r.foreman)}</td>'
+                f'<td style="padding:15px 16px;border-bottom:1px solid #eef2f7;'
+                f'font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;'
+                f'color:#4b5563;">{html.escape(reason)}</td>'
+                "</tr>"
+            )
+
+        rejected_section = (
+            '<div style="margin:0 0 30px 0;">'
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+            'style="width:100%;border-collapse:collapse;margin:0 0 12px 0;">'
+            "<tr>"
+            '<td style="font-family:Arial,Helvetica,sans-serif;font-size:19px;line-height:26px;'
+            'font-weight:800;color:#111827;letter-spacing:-0.02em;">Rejected Timecards</td>'
+            '<td style="text-align:right;">'
+            + _status_pill("Rejected", "#fee2e2", "#b91c1c")
+            + "</td>"
+            "</tr>"
+            "</table>"
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+            'style="width:100%;border-collapse:separate;border-spacing:0;border:1px solid #e5e7eb;'
+            'background:#ffffff;border-radius:18px;overflow:hidden;">'
+            "<thead>"
+            '<tr style="background:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%);">'
+            '<th style="padding:13px 16px;border-bottom:1px solid #e5e7eb;text-align:left;'
+            'font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;'
+            'color:#6b7280;text-transform:uppercase;letter-spacing:0.08em;">Job Code</th>'
+            '<th style="padding:13px 16px;border-bottom:1px solid #e5e7eb;text-align:left;'
+            'font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;'
+            'color:#6b7280;text-transform:uppercase;letter-spacing:0.08em;">Foreman</th>'
+            '<th style="padding:13px 16px;border-bottom:1px solid #e5e7eb;text-align:left;'
+            'font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;'
+            'color:#6b7280;text-transform:uppercase;letter-spacing:0.08em;">Reason</th>'
+            "</tr>"
+            "</thead>"
+            "<tbody>"
+            + "".join(rows)
+            + "</tbody></table></div>"
+        )
+
+    flagged_section = ""
+    if flagged_count > 0:
+        rows = []
+        for r in flagged:
+            flag_text = "; ".join(r.reasons) if r.reasons else "Flagged"
+            rows.append(
+                "<tr>"
+                f'<td style="padding:15px 16px;border-bottom:1px solid #eef2f7;'
+                f'font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;'
+                f'color:#111827;font-weight:800;">{_job_cell(r)}</td>'
+                f'<td style="padding:15px 16px;border-bottom:1px solid #eef2f7;'
+                f'font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;'
+                f'color:#111827;">{html.escape(r.foreman)}</td>'
+                f'<td style="padding:15px 16px;border-bottom:1px solid #eef2f7;'
+                f'font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;'
+                f'color:#4b5563;">{html.escape(flag_text)}</td>'
+                "</tr>"
+            )
+
+        flagged_section = (
+            '<div style="margin:0 0 30px 0;">'
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+            'style="width:100%;border-collapse:collapse;margin:0 0 12px 0;">'
+            "<tr>"
+            '<td style="font-family:Arial,Helvetica,sans-serif;font-size:19px;line-height:26px;'
+            'font-weight:800;color:#111827;letter-spacing:-0.02em;">Flagged Timecards</td>'
+            '<td style="text-align:right;">'
+            + _status_pill("Needs Review", "#ffedd5", "#c2410c")
+            + "</td>"
+            "</tr>"
+            "</table>"
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+            'style="width:100%;border-collapse:separate;border-spacing:0;border:1px solid #e5e7eb;'
+            'background:#ffffff;border-radius:18px;overflow:hidden;">'
+            "<thead>"
+            '<tr style="background:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%);">'
+            '<th style="padding:13px 16px;border-bottom:1px solid #e5e7eb;text-align:left;'
+            'font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;'
+            'color:#6b7280;text-transform:uppercase;letter-spacing:0.08em;">Job Code</th>'
+            '<th style="padding:13px 16px;border-bottom:1px solid #e5e7eb;text-align:left;'
+            'font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;'
+            'color:#6b7280;text-transform:uppercase;letter-spacing:0.08em;">Foreman</th>'
+            '<th style="padding:13px 16px;border-bottom:1px solid #e5e7eb;text-align:left;'
+            'font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;'
+            'color:#6b7280;text-transform:uppercase;letter-spacing:0.08em;">Flag</th>'
+            "</tr>"
+            "</thead>"
+            "<tbody>"
+            + "".join(rows)
+            + "</tbody></table></div>"
+        )
+
+    footer = (
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        'style="width:100%;border-collapse:collapse;border-top:1px solid #e5e7eb;margin-top:8px;">'
+        "<tr>"
+        '<td style="padding:20px 0 0 0;font-family:Arial,Helvetica,sans-serif;'
+        'font-size:12px;line-height:19px;color:#6b7280;">'
+        '<strong style="color:#374151;">Construction Operations</strong><br>'
+        f"Automated time log verification report<br>"
+        f"Generated {html.escape(now_str)}"
+        "</td>"
+        "</tr>"
+        "</table>"
+    )
+
+    html_body = (
+        '<div style="margin:0;padding:0;background:#eef2f7;">'
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        'style="width:100%;border-collapse:collapse;background:#eef2f7;">'
+        "<tr>"
+        '<td align="center" style="padding:32px 14px;">'
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        'style="width:100%;max-width:780px;border-collapse:separate;border-spacing:0;background:#ffffff;'
+        'border-radius:24px;overflow:hidden;">'
+        "<tr>"
+        '<td style="padding:0;font-family:Arial,Helvetica,sans-serif;">'
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        'style="width:100%;border-collapse:collapse;background:#0f172a;'
+        'background-image:linear-gradient(135deg,#0f172a 0%,#155e75 48%,#10b981 100%);">'
+        "<tr>"
+        '<td style="padding:34px 34px 34px 34px;font-family:Arial,Helvetica,sans-serif;">'
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        'style="width:100%;border-collapse:collapse;">'
+        "<tr>"
+        '<td style="vertical-align:top;">'
+        '<div style="font-size:12px;line-height:17px;color:#d1fae5;font-weight:800;'
+        'text-transform:uppercase;letter-spacing:0.12em;margin:0 0 34px 0;">'
+        "Construction Operations</div>"
+        '<div style="font-size:42px;line-height:48px;color:#ffffff;font-weight:800;'
+        'letter-spacing:-0.05em;margin:0 0 14px 0;">Time Log Verification</div>'
+        f'<div style="font-size:20px;line-height:28px;color:#ecfeff;font-weight:700;margin:0;">'
+        f"{html.escape(display_date)}</div>"
+        "</td>"
+        '<td style="vertical-align:top;text-align:right;white-space:nowrap;">'
+        '<span style="display:inline-block;background:rgba(255,255,255,0.18);color:#ffffff;'
+        'font-size:11px;line-height:16px;font-weight:800;text-transform:uppercase;'
+        'letter-spacing:0.08em;border-radius:999px;padding:8px 12px;">Email Report</span>'
+        "</td>"
+        "</tr>"
+        "</table>"
+        "</td>"
+        "</tr>"
+        "</table>"
+        "</td>"
+        "</tr>"
+        "<tr>"
+        '<td style="padding:30px 34px 34px 34px;font-family:Arial,Helvetica,sans-serif;background:#ffffff;">'
+        f'<div style="font-size:14px;line-height:21px;color:#6b7280;margin:0 0 20px 0;">'
+        f'Report date: <strong style="color:#111827;">{html.escape(report_date)}</strong>'
+        f' &nbsp;|&nbsp; Total timecards: <strong style="color:#111827;">{total_count}</strong>'
+        "</div>"
+        + summary_cards
+        + action_box
+        + rejected_section
+        + flagged_section
+        + footer
+        + "</td>"
+        "</tr>"
+        "</table>"
+        "</td>"
+        "</tr>"
+        "</table>"
+        "</div>"
+    )
+
+    logger.debug("Email body built successfully for date=%s", report_date)
+    return subject, html_body

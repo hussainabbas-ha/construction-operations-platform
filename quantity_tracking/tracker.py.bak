@@ -1,0 +1,338 @@
+"""
+Quantity Tracking — core engine.
+
+DESIGN:
+  Uses timecards as a bridge to find active job IDs for a given date/range.
+  Only jobs with actual timecard activity in the period are tracked —
+  avoiding rate limiting from querying all 524 jobs.
+
+Flow:
+  1. Fetch timecards for date/range → extract unique job IDs
+  2. Batch fetch cost codes for those job IDs (one request)
+  3. Fetch quantity progress per active job
+  4. Join and calculate percent complete + status
+
+Status rules:
+  ON_TRACK        — < 75% complete
+  NEAR_COMPLETION — >= 75% and < 100%
+  OVER_RISK       — >= 100%
+"""
+from __future__ import annotations
+
+import logging
+from dataclasses import dataclass
+from datetime import date
+from typing import Any, Literal
+
+from payroll_verification.hcss_client import HCSSClient
+
+logger = logging.getLogger(__name__)
+
+Status = Literal["ON_TRACK", "NEAR_COMPLETION", "OVER_RISK"]
+
+ALERT_THRESHOLD = 75.0
+
+
+# ---------------------------------------------------------------------------
+# Result dataclass
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class QuantityResult:
+    cost_code_id: str
+    cost_code: str
+    description: str
+    job_id: str
+    job_code: str
+    unit: str
+    cost_type: str           # "self_perform" | "subcontractor"
+    planned_quantity: float
+    installed_quantity: float
+    percent_complete: float
+    status: Status
+    alert: bool
+
+    @property
+    def remaining_quantity(self) -> float:
+        return max(0.0, self.planned_quantity - self.installed_quantity)
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+def _safe_float(val: Any) -> float:
+    try:
+        return float(val or 0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _determine_cost_type(cost_code: dict[str, Any]) -> str:
+    raw = (
+        cost_code.get("costType")
+        or cost_code.get("type")
+        or cost_code.get("workType")
+        or ""
+    ).lower()
+    return "subcontractor" if "sub" in raw else "self_perform"
+
+
+def _calculate_status(percent: float) -> Status:
+    if percent >= 100.0:
+        return "OVER_RISK"
+    if percent >= ALERT_THRESHOLD:
+        return "NEAR_COMPLETION"
+    return "ON_TRACK"
+
+
+def _resolve_dates(
+    target_date: str | None,
+    start_date: str | None,
+    end_date: str | None,
+) -> tuple[str, str]:
+    """
+    Resolve date inputs to (start, end) pair.
+    Priority: target_date > start_date+end_date > current month default.
+    """
+    if target_date:
+        return target_date, target_date
+    if start_date and end_date:
+        return start_date, end_date
+    today = date.today()
+    return today.replace(day=1).isoformat(), today.isoformat()
+
+
+# ---------------------------------------------------------------------------
+# Main tracking function
+# ---------------------------------------------------------------------------
+
+def track_quantities(
+    *,
+    target_date: str | None = None,
+    start_date: str | None = None,
+    end_date: str | None = None,
+    client: HCSSClient | None = None,
+) -> list[QuantityResult]:
+    """
+    Track quantities for all jobs active in the given date or date range.
+
+    Uses timecards to discover which jobs had activity in the period,
+    then fetches cost codes and progress only for those jobs.
+
+    Args:
+        target_date: Single date YYYY-MM-DD (sets both start and end).
+        start_date:  Range start YYYY-MM-DD.
+        end_date:    Range end YYYY-MM-DD.
+        client:      Optional HCSSClient instance.
+    """
+    c = client or HCSSClient()
+
+    resolved_start, resolved_end = _resolve_dates(target_date, start_date, end_date)
+
+    logger.info(
+        "Starting quantity tracking: period=%s to %s",
+        resolved_start,
+        resolved_end,
+    )
+
+    # ------------------------------------------------------------------ #
+    # Step 1: Fetch timecards for the period → extract unique active job IDs
+    # ------------------------------------------------------------------ #
+    try:
+        timecard_summaries = c.fetch_timecards(
+            start_date=resolved_start,
+            end_date=resolved_end,
+        )
+    except Exception as exc:
+        logger.error("Failed to fetch timecards for period: %s", exc)
+        raise RuntimeError(f"Could not fetch timecards from HCSS: {exc}") from exc
+
+    if not timecard_summaries:
+        logger.info(
+            "No timecards found for period=%s to %s — no active jobs to track",
+            resolved_start,
+            resolved_end,
+        )
+        return []
+
+    # Extract unique job IDs and job codes from timecard summaries
+    job_map: dict[str, str] = {}   # job_id → job_code
+    for tc in timecard_summaries:
+        jid = tc.get("jobId") or tc.get("job_id")
+        jcode = (
+            tc.get("jobCode")
+            or tc.get("job_code")
+            or tc.get("jobDescription")
+            or "Unknown"
+        )
+        if jid and jid not in job_map:
+            job_map[jid] = jcode
+
+    active_job_ids = list(job_map.keys())
+
+    logger.info(
+        "Found %d timecard(s) → %d unique active job(s) for period=%s to %s",
+        len(timecard_summaries),
+        len(active_job_ids),
+        resolved_start,
+        resolved_end,
+    )
+
+    if not active_job_ids:
+        logger.warning("No job IDs found in timecards for this period")
+        return []
+
+    # ------------------------------------------------------------------ #
+    # Step 2: Batch fetch cost codes for all active jobs in ONE request
+    # ------------------------------------------------------------------ #
+    try:
+        cost_codes_raw = c._request(
+            "POST",
+            "https://api.hcssapps.com/heavyjob/api/v2/costCodes/advancedRequest",
+            json={"jobIds": active_job_ids, "limit": 500},
+        )
+        all_cost_codes = (
+            cost_codes_raw.get("results", [])
+            if isinstance(cost_codes_raw, dict)
+            else cost_codes_raw or []
+        )
+    except Exception as exc:
+        logger.error("Failed to fetch cost codes for active jobs: %s", exc)
+        raise RuntimeError(f"Could not fetch cost codes from HCSS: {exc}") from exc
+
+    if not all_cost_codes:
+        logger.warning(
+            "No cost codes found for %d active job(s)", len(active_job_ids)
+        )
+        return []
+
+    logger.info(
+        "Fetched %d cost code(s) across %d active job(s)",
+        len(all_cost_codes),
+        len(active_job_ids),
+    )
+
+    # Build lookup: cost_code_id → cost_code dict + cost_code_id → job_id
+    cc_map: dict[str, dict[str, Any]] = {}
+    cc_job_map: dict[str, str] = {}
+
+    for cc in all_cost_codes:
+        ccid = cc.get("id") or cc.get("costCodeId")
+        jid = cc.get("jobId") or cc.get("job_id")
+        if ccid:
+            cc_map[ccid] = cc
+            if jid:
+                cc_job_map[ccid] = jid
+
+    # ------------------------------------------------------------------ #
+    # Step 3: Fetch quantity progress per active job
+    # Only active jobs are queried — typically 5-20, never 500+
+    # ------------------------------------------------------------------ #
+    installed_map: dict[str, float] = {}   # cost_code_id → installed qty
+
+    for jid in active_job_ids:
+        try:
+            progress_raw = c._request(
+                "POST",
+                f"{c.heavyjob_base}/costCode/progress/advancedRequest",
+                json={
+                    "jobId": jid,
+                    "startDate": f"{resolved_start}T00:00:00Z",
+                    "endDate": f"{resolved_end}T23:59:59Z",
+                    "limit": 500,
+                },
+            )
+            progress_list = (
+                progress_raw.get("results", [])
+                if isinstance(progress_raw, dict)
+                else progress_raw or []
+            )
+            logger.info(
+                "Progress: job=%s fetched %d record(s)",
+                jid,
+                len(progress_list),
+            )
+            for p in progress_list:
+                ccid = p.get("costCodeId") or p.get("id")
+                qty = _safe_float(
+                    p.get("quantityToDate")
+                    or p.get("quantity")
+                    or p.get("totalQuantity")
+                )
+                if ccid:
+                    installed_map[ccid] = installed_map.get(ccid, 0.0) + qty
+
+        except Exception as exc:
+            logger.error(
+                "Failed to fetch progress for job=%s: %s — "
+                "installed quantities for this job will show as 0",
+                jid,
+                exc,
+            )
+            continue
+
+    # ------------------------------------------------------------------ #
+    # Step 4: Join cost codes + progress → calculate status
+    # ------------------------------------------------------------------ #
+    results: list[QuantityResult] = []
+
+    for ccid, cc in cc_map.items():
+        planned = _safe_float(
+            cc.get("quantity")
+            or cc.get("plannedQuantity")
+            or cc.get("budgetQuantity")
+        )
+
+        if planned <= 0:
+            continue   # nothing to track
+
+        installed = installed_map.get(ccid, 0.0)
+        percent = round((installed / planned) * 100, 2)
+        st = _calculate_status(percent)
+        jid = cc_job_map.get(ccid, "")
+
+        results.append(
+            QuantityResult(
+                cost_code_id=ccid,
+                cost_code=(
+                    cc.get("code")
+                    or cc.get("costCode")
+                    or cc.get("number")
+                    or ccid[:8]
+                ),
+                description=(
+                    cc.get("description")
+                    or cc.get("name")
+                    or cc.get("costCodeDescription")
+                    or "No description"
+                ),
+                job_id=jid,
+                job_code=job_map.get(jid, "Unknown"),
+                unit=(
+                    cc.get("unit")
+                    or cc.get("unitOfMeasure")
+                    or cc.get("uom")
+                    or "UNIT"
+                ),
+                cost_type=_determine_cost_type(cc),
+                planned_quantity=planned,
+                installed_quantity=installed,
+                percent_complete=percent,
+                status=st,
+                alert=percent >= ALERT_THRESHOLD,
+            )
+        )
+
+    on_track = sum(1 for r in results if r.status == "ON_TRACK")
+    near = sum(1 for r in results if r.status == "NEAR_COMPLETION")
+    over = sum(1 for r in results if r.status == "OVER_RISK")
+
+    logger.info(
+        "Quantity tracking done: period=%s to %s active_jobs=%d "
+        "total=%d on_track=%d near=%d over=%d",
+        resolved_start, resolved_end, len(active_job_ids),
+        len(results), on_track, near, over,
+    )
+
+    return results

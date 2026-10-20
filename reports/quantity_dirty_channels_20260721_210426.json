@@ -1,0 +1,913 @@
+{
+  "run_at": "2026-07-21T15:36:09.161297+00:00",
+  "modified_since": "2026-07-19T00:00:00Z",
+  "known_stale": [
+    "2026-07-15",
+    "2026-07-17",
+    "2026-07-20"
+  ],
+  "window": {
+    "min": "2026-05-01",
+    "max": "2026-07-20"
+  },
+  "pass_criteria": {
+    "non_firehose": "<= 40 distinct dates in window",
+    "covers_known_stale": "at least 2 of 3 known stale days",
+    "refresh_restores_watchlist": "after corrupt+refresh, gaps <= 0.01"
+  },
+  "channels": {
+    "timeCardInfo": {
+      "channel": "timeCardInfo",
+      "rows": 88,
+      "pages": 1,
+      "capped": false,
+      "distinct_dates_all": 12,
+      "distinct_dates_in_window": 12,
+      "dates_in_window": [
+        "2026-07-06",
+        "2026-07-07",
+        "2026-07-08",
+        "2026-07-09",
+        "2026-07-10",
+        "2026-07-13",
+        "2026-07-14",
+        "2026-07-15",
+        "2026-07-16",
+        "2026-07-17",
+        "2026-07-18",
+        "2026-07-20"
+      ],
+      "dates_in_window_sample": [
+        "2026-07-06",
+        "2026-07-07",
+        "2026-07-08",
+        "2026-07-09",
+        "2026-07-10",
+        "2026-07-13",
+        "2026-07-14",
+        "2026-07-15",
+        "2026-07-16",
+        "2026-07-17",
+        "2026-07-18",
+        "2026-07-20"
+      ],
+      "known_stale_covered": [
+        "2026-07-15",
+        "2026-07-17",
+        "2026-07-20"
+      ],
+      "known_stale_missed": [],
+      "is_firehose": false,
+      "usable_for_discovery": true,
+      "min_date": "2026-07-06",
+      "max_date": "2026-07-20",
+      "sample_fields": [
+        "businessUnitId",
+        "date",
+        "foremanId",
+        "id",
+        "isApproved",
+        "jobId",
+        "lastModifiedDateTime",
+        "lastModifiedPreciseDateTime",
+        "lockedDateTime",
+        "revision",
+        "shift"
+      ],
+      "top_last_modified_days": [
+        [
+          "2026-07-20",
+          73
+        ],
+        [
+          "2026-07-21",
+          15
+        ]
+      ],
+      "sample_rows": [
+        {
+          "id": "cdb7c652-5be9-4cea-b3f9-af987438cd4d",
+          "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+          "date": "2026-07-17",
+          "revision": 0,
+          "lastModified": "2026-07-21T15:13:30.8227651Z"
+        },
+        {
+          "id": "7494cbfb-a583-4c94-8092-73e3ee336658",
+          "jobId": "48a21d03-9167-4f10-b5db-1e490117662f",
+          "date": "2026-07-20",
+          "revision": 0,
+          "lastModified": "2026-07-21T14:29:33Z"
+        },
+        {
+          "id": "7876e80a-5ea6-437f-b0f3-e0a66cd87eab",
+          "jobId": "8b4fc34a-4875-4f3f-ae2f-2a8bf35b531f",
+          "date": "2026-07-20",
+          "revision": 1,
+          "lastModified": "2026-07-21T14:39:15Z"
+        },
+        {
+          "id": "9d37b02e-ad97-49be-8d32-3eb5ac014c03",
+          "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+          "date": "2026-07-20",
+          "revision": 0,
+          "lastModified": "2026-07-21T14:32:47Z"
+        },
+        {
+          "id": "50c751c1-f97f-45cf-8de9-f9376a8843b3",
+          "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+          "date": "2026-07-20",
+          "revision": 0,
+          "lastModified": "2026-07-21T14:09:00Z"
+        },
+        {
+          "id": "33ea2908-7e3b-42da-9082-84ea0ab68aab",
+          "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+          "date": "2026-07-17",
+          "revision": 0,
+          "lastModified": "2026-07-21T14:08:13Z"
+        },
+        {
+          "id": "856d7c93-5966-4f15-8572-af3e46583ee6",
+          "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+          "date": "2026-07-16",
+          "revision": 0,
+          "lastModified": "2026-07-21T14:07:50Z"
+        },
+        {
+          "id": "2d5ec616-8341-4411-b5e6-b873caaca1ab",
+          "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+          "date": "2026-07-15",
+          "revision": 0,
+          "lastModified": "2026-07-21T14:07:28Z"
+        },
+        {
+          "id": "4b3236a9-7fc8-4a01-a5b4-22eb81ba2c30",
+          "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+          "date": "2026-07-14",
+          "revision": 0,
+          "lastModified": "2026-07-21T14:06:20Z"
+        },
+        {
+          "id": "673e6f53-000a-4a6a-ad99-4a2b51326040",
+          "jobId": "10c62c1b-e012-4664-95b7-0a3bb1338928",
+          "date": "2026-07-15",
+          "revision": 0,
+          "lastModified": "2026-07-21T12:49:06Z"
+        },
+        {
+          "id": "64f32d9a-d30a-493f-a71f-ba6e72c537aa",
+          "jobId": "d35840d1-6817-41f4-a5ea-89383a2d29ba",
+          "date": "2026-07-17",
+          "revision": 0,
+          "lastModified": "2026-07-21T13:06:02Z"
+        },
+        {
+          "id": "a5e9a262-4520-4010-90f5-24d451dc8cdc",
+          "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+          "date": "2026-07-17",
+          "revision": 1,
+          "lastModified": "2026-07-21T13:09:13Z"
+        },
+        {
+          "id": "332e248a-97ce-4a4d-9b3d-ed9f85f4e8d5",
+          "jobId": "aba540a7-c953-4b65-a165-4aa2c7c57338",
+          "date": "2026-07-15",
+          "revision": 0,
+          "lastModified": "2026-07-21T02:10:13Z"
+        },
+        {
+          "id": "0016ec93-7049-48e0-818f-1be1c57901a9",
+          "jobId": "d35840d1-6817-41f4-a5ea-89383a2d29ba",
+          "date": "2026-07-13",
+          "revision": 1,
+          "lastModified": "2026-07-21T00:39:08Z"
+        },
+        {
+          "id": "588cbdb4-ea52-4f94-a1aa-ec48074fc4e1",
+          "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+          "date": "2026-07-20",
+          "revision": 1,
+          "lastModified": "2026-07-21T00:09:08Z"
+        }
+      ]
+    },
+    "costCodeTimeCardTransactions": {
+      "channel": "costCodeTimeCardTransactions",
+      "rows": 1,
+      "pages": 1,
+      "capped": false,
+      "distinct_dates_all": 1,
+      "distinct_dates_in_window": 1,
+      "dates_in_window": [
+        "2026-07-16"
+      ],
+      "dates_in_window_sample": [
+        "2026-07-16"
+      ],
+      "known_stale_covered": [],
+      "known_stale_missed": [
+        "2026-07-15",
+        "2026-07-17",
+        "2026-07-20"
+      ],
+      "is_firehose": false,
+      "usable_for_discovery": false,
+      "min_date": "2026-07-16",
+      "max_date": "2026-07-16",
+      "sample_fields": [
+        "costCode",
+        "date",
+        "foreman",
+        "isMseDriven",
+        "isRework",
+        "isTm",
+        "job",
+        "quantity",
+        "slot",
+        "syncTimestamp",
+        "tags",
+        "timeCardCostCodeId",
+        "timeCardId",
+        "timeCardShift",
+        "unitOfMeasure"
+      ],
+      "qty_nonzero_rows": 1,
+      "watchlist_hit_count": 0,
+      "watchlist_hits": [],
+      "watchlist_txn_dates": [],
+      "sample_rows": [
+        {
+          "date": "2026-07-16",
+          "job": "25006",
+          "costCode": "58511111A",
+          "quantity": 5.5,
+          "syncTimestamp": "2026-07-20T13:44:07.1582684"
+        }
+      ]
+    },
+    "jobCosts_v2": {
+      "channel": "jobCosts_v2",
+      "rows": 20000,
+      "pages": 40,
+      "capped": true,
+      "distinct_dates_all": 4155,
+      "distinct_dates_in_window": 65,
+      "dates_in_window": [
+        "2026-05-01",
+        "2026-05-04",
+        "2026-05-05",
+        "2026-05-06",
+        "2026-05-07",
+        "2026-05-08",
+        "2026-05-09",
+        "2026-05-11",
+        "2026-05-12",
+        "2026-05-13",
+        "2026-05-14",
+        "2026-05-15",
+        "2026-05-16",
+        "2026-05-18",
+        "2026-05-19",
+        "2026-05-20",
+        "2026-05-21",
+        "2026-05-22",
+        "2026-05-23",
+        "2026-05-24",
+        "2026-05-25",
+        "2026-05-26",
+        "2026-05-27",
+        "2026-05-28",
+        "2026-05-29",
+        "2026-06-01",
+        "2026-06-02",
+        "2026-06-03",
+        "2026-06-04",
+        "2026-06-05",
+        "2026-06-06",
+        "2026-06-08",
+        "2026-06-09",
+        "2026-06-10",
+        "2026-06-11",
+        "2026-06-12",
+        "2026-06-13",
+        "2026-06-15",
+        "2026-06-16",
+        "2026-06-17",
+        "2026-06-18",
+        "2026-06-19",
+        "2026-06-22",
+        "2026-06-23",
+        "2026-06-24",
+        "2026-06-25",
+        "2026-06-26",
+        "2026-06-27",
+        "2026-06-29",
+        "2026-06-30",
+        "2026-07-01",
+        "2026-07-02",
+        "2026-07-06",
+        "2026-07-07",
+        "2026-07-08",
+        "2026-07-09",
+        "2026-07-10",
+        "2026-07-11",
+        "2026-07-13",
+        "2026-07-14",
+        "2026-07-15",
+        "2026-07-16",
+        "2026-07-17",
+        "2026-07-18",
+        "2026-07-20"
+      ],
+      "dates_in_window_sample": [
+        "2026-05-01",
+        "2026-05-04",
+        "2026-05-05",
+        "2026-05-06",
+        "2026-05-07",
+        "2026-05-08",
+        "2026-05-09",
+        "2026-05-11",
+        "2026-05-12",
+        "2026-05-13",
+        "2026-05-14",
+        "2026-05-15",
+        "2026-05-16",
+        "2026-05-18",
+        "2026-05-19",
+        "2026-05-20",
+        "2026-05-21",
+        "2026-05-22",
+        "2026-05-23",
+        "2026-05-24",
+        "2026-05-25",
+        "2026-05-26",
+        "2026-05-27",
+        "2026-05-28",
+        "2026-05-29",
+        "2026-06-01",
+        "2026-06-02",
+        "2026-06-03",
+        "2026-06-04",
+        "2026-06-05",
+        "2026-06-06",
+        "2026-06-08",
+        "2026-06-09",
+        "2026-06-10",
+        "2026-06-11",
+        "2026-06-12",
+        "2026-06-13",
+        "2026-06-15",
+        "2026-06-16",
+        "2026-06-17",
+        "2026-06-18",
+        "2026-06-19",
+        "2026-06-22",
+        "2026-06-23",
+        "2026-06-24",
+        "2026-06-25",
+        "2026-06-26",
+        "2026-06-27",
+        "2026-06-29",
+        "2026-06-30"
+      ],
+      "known_stale_covered": [
+        "2026-07-15",
+        "2026-07-17",
+        "2026-07-20"
+      ],
+      "known_stale_missed": [],
+      "is_firehose": true,
+      "usable_for_discovery": false,
+      "min_date": "1932-08-31",
+      "max_date": "2026-07-20",
+      "sample_fields": [
+        "costCode",
+        "date",
+        "entryType",
+        "equipmentCost",
+        "equipmentHours",
+        "foreman",
+        "job",
+        "laborCost",
+        "laborHours",
+        "materialCost",
+        "quantity",
+        "subcontractCost",
+        "truckingCost"
+      ],
+      "entry_types": {
+        "foreman": 19986,
+        "quantity": 14
+      },
+      "sample_rows": [
+        {
+          "date": "2012-10-10",
+          "job": "11001",
+          "costCode": "01-ADMFLD",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2016-03-15",
+          "job": "11003",
+          "costCode": "MECHANIC",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2015-04-02",
+          "job": "11001",
+          "costCode": "ADMNPM",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2015-10-15",
+          "job": "15029",
+          "costCode": "20600050",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2022-06-13",
+          "job": "11002",
+          "costCode": "100.2019.8",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2015-09-17",
+          "job": "15037",
+          "costCode": "20200220",
+          "quantity": 64.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2017-11-03",
+          "job": "15014",
+          "costCode": "203-00060",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2013-07-23",
+          "job": "11003",
+          "costCode": "TIRES",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2026-05-14",
+          "job": "25069C",
+          "costCode": "21011111A",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2022-03-04",
+          "job": "20047",
+          "costCode": "11011111",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2023-04-05",
+          "job": "11001",
+          "costCode": "ACOUNT",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2018-08-22",
+          "job": "17046",
+          "costCode": "12201111",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2024-04-01",
+          "job": "11002",
+          "costCode": "100.2019.8",
+          "quantity": 0.0,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2026-02-02",
+          "job": "25048",
+          "costCode": "11005111A",
+          "quantity": 28.45,
+          "entryType": "foreman"
+        },
+        {
+          "date": "2025-09-11",
+          "job": "25027",
+          "costCode": "12701111C",
+          "quantity": 0.01,
+          "entryType": "foreman"
+        }
+      ]
+    }
+  },
+  "discovery_summary": {
+    "usable_channels": [
+      "timeCardInfo"
+    ],
+    "preferred_channel": "timeCardInfo",
+    "union_dirty_dates_non_firehose": [
+      "2026-07-06",
+      "2026-07-07",
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-10",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-20"
+    ],
+    "known_stale_covered_by_any": [
+      "2026-07-15",
+      "2026-07-17",
+      "2026-07-20"
+    ],
+    "known_stale_missed_by_all": []
+  },
+  "watchlist_before_corrupt": [
+    {
+      "job_code": "25006",
+      "cost_code": "80711111",
+      "hcss": 26557.0,
+      "db": 26557.0,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "80011111B",
+      "hcss": 11326.0,
+      "db": 11326.0,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58011111D",
+      "hcss": 600.0,
+      "db": 600.0,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25069C",
+      "cost_code": "14511111C",
+      "hcss": 565.9,
+      "db": 565.9,
+      "gap": 0.0
+    },
+    {
+      "job_code": "26004",
+      "cost_code": "61340010A",
+      "hcss": 19.5,
+      "db": 19.5,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "40011111",
+      "hcss": 51.0,
+      "db": 51.0,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "24011111A",
+      "hcss": 185.97,
+      "db": 185.97,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25048",
+      "cost_code": "12011111C",
+      "hcss": 5.06,
+      "db": 5.06,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58511111C",
+      "hcss": 7.95,
+      "db": 7.95,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "5111111",
+      "hcss": 9.24,
+      "db": 9.24,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "211111I",
+      "hcss": 7.71,
+      "db": 7.71,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "60011111B",
+      "hcss": 0.05,
+      "db": 0.05,
+      "gap": 0.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "1011111",
+      "hcss": 2.38,
+      "db": 2.37,
+      "gap": 0.01
+    }
+  ],
+  "corrupted_cells": 20,
+  "watchlist_after_corrupt": [
+    {
+      "job_code": "25006",
+      "cost_code": "80711111",
+      "hcss": 26557.0,
+      "db": 22657.0,
+      "gap": 3900.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "80011111B",
+      "hcss": 11326.0,
+      "db": 11132.0,
+      "gap": 194.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58011111D",
+      "hcss": 600.0,
+      "db": 565.0,
+      "gap": 35.0
+    },
+    {
+      "job_code": "25069C",
+      "cost_code": "14511111C",
+      "hcss": 565.9,
+      "db": 438.25,
+      "gap": 127.65
+    },
+    {
+      "job_code": "26004",
+      "cost_code": "61340010A",
+      "hcss": 19.5,
+      "db": 0.0,
+      "gap": 19.5
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "40011111",
+      "hcss": 51.0,
+      "db": 34.0,
+      "gap": 17.0
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "24011111A",
+      "hcss": 185.97,
+      "db": 182.97,
+      "gap": 3.0
+    },
+    {
+      "job_code": "25048",
+      "cost_code": "12011111C",
+      "hcss": 5.06,
+      "db": 4.06,
+      "gap": 1.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58511111C",
+      "hcss": 7.95,
+      "db": 7.7,
+      "gap": 0.25
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "5111111",
+      "hcss": 9.24,
+      "db": 8.64,
+      "gap": 0.6
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "211111I",
+      "hcss": 7.71,
+      "db": 7.61,
+      "gap": 0.1
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "60011111B",
+      "hcss": 0.05,
+      "db": 0.0,
+      "gap": 0.05
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "1011111",
+      "hcss": 2.38,
+      "db": 2.155,
+      "gap": 0.225
+    }
+  ],
+  "refresh": {
+    "dates": [
+      "2026-07-06",
+      "2026-07-07",
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-10",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-20"
+    ],
+    "results": [
+      {
+        "date": "2026-07-06",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-07",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-08",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-09",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-10",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-13",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-14",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-15",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-16",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-17",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-18",
+        "rows": 3522,
+        "ok": true
+      },
+      {
+        "date": "2026-07-20",
+        "rows": 3522,
+        "ok": true
+      }
+    ]
+  },
+  "watchlist_after_refresh": [
+    {
+      "job_code": "25006",
+      "cost_code": "80711111",
+      "hcss": 26557.0,
+      "db": 26557.0,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "80011111B",
+      "hcss": 11326.0,
+      "db": 11326.0,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58011111D",
+      "hcss": 600.0,
+      "db": 600.0,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25069C",
+      "cost_code": "14511111C",
+      "hcss": 565.9,
+      "db": 652.85,
+      "gap": -86.95,
+      "status": "GAP"
+    },
+    {
+      "job_code": "26004",
+      "cost_code": "61340010A",
+      "hcss": 19.5,
+      "db": 19.5,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "40011111",
+      "hcss": 51.0,
+      "db": 51.0,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "24011111A",
+      "hcss": 185.97,
+      "db": 185.97,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25048",
+      "cost_code": "12011111C",
+      "hcss": 5.06,
+      "db": 5.06,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58511111C",
+      "hcss": 7.95,
+      "db": 7.95,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "5111111",
+      "hcss": 9.24,
+      "db": 9.24,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "211111I",
+      "hcss": 7.71,
+      "db": 7.71,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "60011111B",
+      "hcss": 0.05,
+      "db": 0.05,
+      "gap": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "1011111",
+      "hcss": 2.38,
+      "db": 2.38,
+      "gap": 0.0,
+      "status": "MATCH"
+    }
+  ],
+  "refresh_match_count": 12,
+  "refresh_total": 13,
+  "verdict": "DISCOVERY: PASS on ['timeCardInfo'] \u2014 non-firehose and covers known stale days.\nREFRESH: FAIL \u2014 only 12/13 match after refresh.\nNO-GO for modifiedSince-only dirty sync. Fall back to lookback (e.g. 30 days) + periodic full reconcile."
+}

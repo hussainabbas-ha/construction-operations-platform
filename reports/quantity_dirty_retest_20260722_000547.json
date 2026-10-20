@@ -1,0 +1,823 @@
+{
+  "run_at": "2026-07-21T18:39:17.269481+00:00",
+  "modified_since": "2026-07-21T14:00:00Z",
+  "range": {
+    "start": "2026-05-01",
+    "end": "2026-07-20"
+  },
+  "watchlist": [
+    {
+      "job_code": "25013",
+      "cost_code": "12451111B",
+      "hcss": 768.25,
+      "dash_reported": 91.0
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12401111B",
+      "hcss": 250.0,
+      "dash_reported": 0.0
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "71300000",
+      "hcss": 293.0,
+      "dash_reported": 78.0
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111E",
+      "hcss": 100.0,
+      "dash_reported": 0.0
+    },
+    {
+      "job_code": "25060DIST",
+      "cost_code": "3011111F",
+      "hcss": 285.0,
+      "dash_reported": 195.0
+    },
+    {
+      "job_code": "25060DIST",
+      "cost_code": "3011111C",
+      "hcss": 359.0,
+      "dash_reported": 269.0
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12451111F",
+      "hcss": 75.0,
+      "dash_reported": 0.0
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111A",
+      "hcss": 761.18,
+      "dash_reported": 691.88
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58011111D",
+      "hcss": 660.0,
+      "dash_reported": 600.0
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "49011111A",
+      "hcss": 51.0,
+      "dash_reported": 0.0
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12451111E",
+      "hcss": 400.0,
+      "dash_reported": 350.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58011111B",
+      "hcss": 702.0,
+      "dash_reported": 657.0
+    },
+    {
+      "job_code": "25060DIST",
+      "cost_code": "3011111B",
+      "hcss": 344.0,
+      "dash_reported": 307.0
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111D",
+      "hcss": 13.0,
+      "dash_reported": 0.0
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "24011111A",
+      "hcss": 198.93,
+      "dash_reported": 185.97
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111G",
+      "hcss": 10.11,
+      "dash_reported": 0.0
+    },
+    {
+      "job_code": "25069C",
+      "cost_code": "10511111",
+      "hcss": 6.0,
+      "dash_reported": 0.0
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12101111C",
+      "hcss": 8.0,
+      "dash_reported": 2.0
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12451111D",
+      "hcss": 43.0,
+      "dash_reported": 40.0
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "19011111",
+      "hcss": 22.2,
+      "dash_reported": 21.9
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58511111B",
+      "hcss": 5.51,
+      "dash_reported": 5.31
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12001111A",
+      "hcss": 0.07,
+      "dash_reported": 0.05
+    }
+  ],
+  "before": [
+    {
+      "job_code": "25013",
+      "cost_code": "12451111B",
+      "hcss": 768.25,
+      "dash_reported": 91.0,
+      "db": 91.0,
+      "gap_vs_hcss": 677.25,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12401111B",
+      "hcss": 250.0,
+      "dash_reported": 0.0,
+      "db": 0.0,
+      "gap_vs_hcss": 250.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "71300000",
+      "hcss": 293.0,
+      "dash_reported": 78.0,
+      "db": 78.0,
+      "gap_vs_hcss": 215.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111E",
+      "hcss": 100.0,
+      "dash_reported": 0.0,
+      "db": 0.0,
+      "gap_vs_hcss": 100.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25060DIST",
+      "cost_code": "3011111F",
+      "hcss": 285.0,
+      "dash_reported": 195.0,
+      "db": 195.0,
+      "gap_vs_hcss": 90.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25060DIST",
+      "cost_code": "3011111C",
+      "hcss": 359.0,
+      "dash_reported": 269.0,
+      "db": 269.0,
+      "gap_vs_hcss": 90.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12451111F",
+      "hcss": 75.0,
+      "dash_reported": 0.0,
+      "db": 0.0,
+      "gap_vs_hcss": 75.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111A",
+      "hcss": 761.18,
+      "dash_reported": 691.88,
+      "db": 691.88,
+      "gap_vs_hcss": 69.3,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58011111D",
+      "hcss": 660.0,
+      "dash_reported": 600.0,
+      "db": 600.0,
+      "gap_vs_hcss": 60.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "49011111A",
+      "hcss": 51.0,
+      "dash_reported": 0.0,
+      "db": 0.0,
+      "gap_vs_hcss": 51.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12451111E",
+      "hcss": 400.0,
+      "dash_reported": 350.0,
+      "db": 350.0,
+      "gap_vs_hcss": 50.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58011111B",
+      "hcss": 702.0,
+      "dash_reported": 657.0,
+      "db": 657.0,
+      "gap_vs_hcss": 45.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25060DIST",
+      "cost_code": "3011111B",
+      "hcss": 344.0,
+      "dash_reported": 307.0,
+      "db": 307.0,
+      "gap_vs_hcss": 37.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111D",
+      "hcss": 13.0,
+      "dash_reported": 0.0,
+      "db": 0.0,
+      "gap_vs_hcss": 13.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "24011111A",
+      "hcss": 198.93,
+      "dash_reported": 185.97,
+      "db": 185.97,
+      "gap_vs_hcss": 12.96,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111G",
+      "hcss": 10.11,
+      "dash_reported": 0.0,
+      "db": 0.0,
+      "gap_vs_hcss": 10.11,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25069C",
+      "cost_code": "10511111",
+      "hcss": 6.0,
+      "dash_reported": 0.0,
+      "db": 0.0,
+      "gap_vs_hcss": 6.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12101111C",
+      "hcss": 8.0,
+      "dash_reported": 2.0,
+      "db": 2.0,
+      "gap_vs_hcss": 6.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12451111D",
+      "hcss": 43.0,
+      "dash_reported": 40.0,
+      "db": 40.0,
+      "gap_vs_hcss": 3.0,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "19011111",
+      "hcss": 22.2,
+      "dash_reported": 21.9,
+      "db": 21.9,
+      "gap_vs_hcss": 0.3,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58511111B",
+      "hcss": 5.51,
+      "dash_reported": 5.31,
+      "db": 5.31,
+      "gap_vs_hcss": 0.2,
+      "status": "GAP"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12001111A",
+      "hcss": 0.07,
+      "dash_reported": 0.05,
+      "db": 0.05,
+      "gap_vs_hcss": 0.02,
+      "status": "GAP"
+    }
+  ],
+  "discovery": {
+    "rows": 36,
+    "pages": 1,
+    "dates_all": [
+      "2026-07-06",
+      "2026-07-07",
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-10",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-20"
+    ],
+    "dates_in_window": [
+      "2026-07-06",
+      "2026-07-07",
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-10",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-20"
+    ],
+    "sample": [
+      {
+        "id": "588cbdb4-ea52-4f94-a1aa-ec48074fc4e1",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "date": "2026-07-20",
+        "revision": 1,
+        "lastModified": "2026-07-21T18:33:23.2559487Z"
+      },
+      {
+        "id": "68656065-4813-4c01-bf91-732050cf9547",
+        "jobId": "fd13ec30-21fe-4b28-8596-b5921fa834ff",
+        "date": "2026-07-20",
+        "revision": 1,
+        "lastModified": "2026-07-21T18:31:38.749041Z"
+      },
+      {
+        "id": "7494cbfb-a583-4c94-8092-73e3ee336658",
+        "jobId": "48a21d03-9167-4f10-b5db-1e490117662f",
+        "date": "2026-07-20",
+        "revision": 0,
+        "lastModified": "2026-07-21T18:32:01.9136763Z"
+      },
+      {
+        "id": "e8cf5371-7122-4405-88f0-6291366063c1",
+        "jobId": "ef51b394-b476-4149-a1ca-cc94c35b9314",
+        "date": "2026-07-20",
+        "revision": 0,
+        "lastModified": "2026-07-21T18:30:45.6798043Z"
+      },
+      {
+        "id": "fd42b25a-d660-4576-8869-a903f65c5b19",
+        "jobId": "d35840d1-6817-41f4-a5ea-89383a2d29ba",
+        "date": "2026-07-20",
+        "revision": 0,
+        "lastModified": "2026-07-21T18:31:15.4682848Z"
+      },
+      {
+        "id": "e424f4c1-8100-4af5-99fc-0085dba612d4",
+        "jobId": "d35840d1-6817-41f4-a5ea-89383a2d29ba",
+        "date": "2026-07-20",
+        "revision": 0,
+        "lastModified": "2026-07-21T18:31:08.9613512Z"
+      },
+      {
+        "id": "b32b118b-1333-40e4-9c8e-b5c15427a514",
+        "jobId": "d35840d1-6817-41f4-a5ea-89383a2d29ba",
+        "date": "2026-07-17",
+        "revision": 1,
+        "lastModified": "2026-07-21T18:39:15Z"
+      },
+      {
+        "id": "7876e80a-5ea6-437f-b0f3-e0a66cd87eab",
+        "jobId": "8b4fc34a-4875-4f3f-ae2f-2a8bf35b531f",
+        "date": "2026-07-20",
+        "revision": 1,
+        "lastModified": "2026-07-21T18:32:25.3613131Z"
+      },
+      {
+        "id": "50c751c1-f97f-45cf-8de9-f9376a8843b3",
+        "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+        "date": "2026-07-20",
+        "revision": 0,
+        "lastModified": "2026-07-21T18:32:55.276347Z"
+      },
+      {
+        "id": "9d37b02e-ad97-49be-8d32-3eb5ac014c03",
+        "jobId": "d6583862-7c43-4012-aac4-89191273734d",
+        "date": "2026-07-20",
+        "revision": 0,
+        "lastModified": "2026-07-21T18:32:48.5415406Z"
+      },
+      {
+        "id": "e09a537a-aeb0-4453-a381-7ebb212a8384",
+        "jobId": "0c878f80-2107-4503-b105-8ab065207133",
+        "date": "2026-07-16",
+        "revision": 0,
+        "lastModified": "2026-07-21T17:44:56Z"
+      },
+      {
+        "id": "aac4dc43-08dd-46c5-84dd-3f087b3260dc",
+        "jobId": "aba540a7-c953-4b65-a165-4aa2c7c57338",
+        "date": "2026-07-16",
+        "revision": 0,
+        "lastModified": "2026-07-21T17:45:27Z"
+      },
+      {
+        "id": "113a21c7-3100-4f70-b84b-71942f705ae0",
+        "jobId": "aba540a7-c953-4b65-a165-4aa2c7c57338",
+        "date": "2026-07-10",
+        "revision": 0,
+        "lastModified": "2026-07-21T17:42:51Z"
+      },
+      {
+        "id": "4dad4a50-277e-43f9-b850-6ef71604e289",
+        "jobId": "aba540a7-c953-4b65-a165-4aa2c7c57338",
+        "date": "2026-07-09",
+        "revision": 0,
+        "lastModified": "2026-07-21T17:42:51Z"
+      },
+      {
+        "id": "eca731d0-3bec-444d-911e-839452fe7341",
+        "jobId": "aba540a7-c953-4b65-a165-4aa2c7c57338",
+        "date": "2026-07-08",
+        "revision": 0,
+        "lastModified": "2026-07-21T17:42:51Z"
+      },
+      {
+        "id": "1d6f77af-4e8e-4abd-b818-5e7bba924724",
+        "jobId": "aba540a7-c953-4b65-a165-4aa2c7c57338",
+        "date": "2026-07-07",
+        "revision": 0,
+        "lastModified": "2026-07-21T17:42:51Z"
+      },
+      {
+        "id": "b6733e31-6ee0-414f-b17f-17d073ab00e9",
+        "jobId": "aba540a7-c953-4b65-a165-4aa2c7c57338",
+        "date": "2026-07-06",
+        "revision": 0,
+        "lastModified": "2026-07-21T17:42:51Z"
+      },
+      {
+        "id": "a4bedce1-42cc-4093-9aba-3d9f5e259b42",
+        "jobId": "0c878f80-2107-4503-b105-8ab065207133",
+        "date": "2026-07-15",
+        "revision": 0,
+        "lastModified": "2026-07-21T17:13:13Z"
+      },
+      {
+        "id": "b1ec5e5a-0429-49f1-975c-c3bab76acdde",
+        "jobId": "ef51b394-b476-4149-a1ca-cc94c35b9314",
+        "date": "2026-07-18",
+        "revision": 0,
+        "lastModified": "2026-07-21T16:47:08Z"
+      },
+      {
+        "id": "1878dd48-bb39-47aa-8997-c3bdd7c0c69a",
+        "jobId": "ef51b394-b476-4149-a1ca-cc94c35b9314",
+        "date": "2026-07-17",
+        "revision": 0,
+        "lastModified": "2026-07-21T16:43:14Z"
+      }
+    ]
+  },
+  "refresh": [
+    {
+      "date": "2026-07-06",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-07",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-08",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-09",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-10",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-13",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-14",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-15",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-16",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-17",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-18",
+      "rows": 3524,
+      "ok": true
+    },
+    {
+      "date": "2026-07-20",
+      "rows": 3524,
+      "ok": true
+    }
+  ],
+  "after": [
+    {
+      "job_code": "25013",
+      "cost_code": "12451111B",
+      "hcss": 768.25,
+      "dash_reported": 91.0,
+      "db": 768.25,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12401111B",
+      "hcss": 250.0,
+      "dash_reported": 0.0,
+      "db": 250.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "71300000",
+      "hcss": 293.0,
+      "dash_reported": 78.0,
+      "db": 293.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111E",
+      "hcss": 100.0,
+      "dash_reported": 0.0,
+      "db": 100.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25060DIST",
+      "cost_code": "3011111F",
+      "hcss": 285.0,
+      "dash_reported": 195.0,
+      "db": 285.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25060DIST",
+      "cost_code": "3011111C",
+      "hcss": 359.0,
+      "dash_reported": 269.0,
+      "db": 359.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12451111F",
+      "hcss": 75.0,
+      "dash_reported": 0.0,
+      "db": 75.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111A",
+      "hcss": 761.18,
+      "dash_reported": 691.88,
+      "db": 761.18,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58011111D",
+      "hcss": 660.0,
+      "dash_reported": 600.0,
+      "db": 660.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "49011111A",
+      "hcss": 51.0,
+      "dash_reported": 0.0,
+      "db": 51.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12451111E",
+      "hcss": 400.0,
+      "dash_reported": 350.0,
+      "db": 400.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58011111B",
+      "hcss": 702.0,
+      "dash_reported": 657.0,
+      "db": 702.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25060DIST",
+      "cost_code": "3011111B",
+      "hcss": 344.0,
+      "dash_reported": 307.0,
+      "db": 344.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111D",
+      "hcss": 13.0,
+      "dash_reported": 0.0,
+      "db": 13.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25060CONST",
+      "cost_code": "24011111A",
+      "hcss": 198.93,
+      "dash_reported": 185.97,
+      "db": 198.93,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "13351111G",
+      "hcss": 10.11,
+      "dash_reported": 0.0,
+      "db": 10.11,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25069C",
+      "cost_code": "10511111",
+      "hcss": 6.0,
+      "dash_reported": 0.0,
+      "db": 6.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12101111C",
+      "hcss": 8.0,
+      "dash_reported": 2.0,
+      "db": 8.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12451111D",
+      "hcss": 43.0,
+      "dash_reported": 40.0,
+      "db": 43.0,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "19011111",
+      "hcss": 22.2,
+      "dash_reported": 21.9,
+      "db": 22.2,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25006",
+      "cost_code": "58511111B",
+      "hcss": 5.51,
+      "dash_reported": 5.31,
+      "db": 5.51,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    },
+    {
+      "job_code": "25013",
+      "cost_code": "12001111A",
+      "hcss": 0.07,
+      "dash_reported": 0.05,
+      "db": 0.07,
+      "gap_vs_hcss": 0.0,
+      "status": "MATCH",
+      "change": "MATCH"
+    }
+  ],
+  "summary": {
+    "match": 22,
+    "improved": 0,
+    "unchanged": 0,
+    "worsened": 0,
+    "dirty_dates": [
+      "2026-07-06",
+      "2026-07-07",
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-10",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-20"
+    ],
+    "gaps_before": 22,
+    "gaps_after": 0
+  },
+  "verdict": "PASS \u2014 dirty discovery + refresh resolved ALL watchlist gaps. Safe to implement in main quantity logic."
+}

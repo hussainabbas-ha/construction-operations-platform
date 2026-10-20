@@ -1,0 +1,95 @@
+{
+  "note": "actual_cost = cumulative to date (v1/jobCostsToDate). Compare to portal with NO date filter.",
+  "results": [
+    {
+      "cost_code": "1360350018A",
+      "cost_code_id": "41355c83-ecfb-4037-89e3-ab6952ba4829",
+      "job_id": "be303f30-0b7f-4040-a603-9124335416d9",
+      "job_code": "25071",
+      "description": "Instl 18\" ADS -Bkfl 18\" ADS",
+      "planned_budget": 27008.0,
+      "actual_cost": 788.98,
+      "utilization_pct": 2.9,
+      "variance": 26219.02,
+      "status": "ON_TRACK",
+      "budget_breakdown": {
+        "labor": 10778.0,
+        "equipment": 13673.0,
+        "material": 2557.0,
+        "subcontract": 0.0
+      }
+    },
+    {
+      "cost_code": "1520200010C",
+      "cost_code_id": "380ef0bb-d1e4-43d3-aa4b-a8d63ff131c4",
+      "job_id": "be303f30-0b7f-4040-a603-9124335416d9",
+      "job_code": "25071",
+      "description": "Haul Tree Stump to S. Canyon",
+      "planned_budget": 1483.0,
+      "actual_cost": 126.7,
+      "utilization_pct": 8.5,
+      "variance": 1356.3,
+      "status": "ON_TRACK",
+      "budget_breakdown": {
+        "labor": 203.0,
+        "equipment": 209.0,
+        "material": 1071.0,
+        "subcontract": 0.0
+      }
+    },
+    {
+      "cost_code": "1120200220B",
+      "cost_code_id": "3410face-38dc-46d3-b3af-46cd6f58c721",
+      "job_id": "be303f30-0b7f-4040-a603-9124335416d9",
+      "job_code": "25071",
+      "description": "Asphalt Millinmgs 5\" TRK-Haul Millings to United",
+      "planned_budget": 21023.0,
+      "actual_cost": 5341.13,
+      "utilization_pct": 25.4,
+      "variance": 15681.87,
+      "status": "ON_TRACK",
+      "budget_breakdown": {
+        "labor": 6803.0,
+        "equipment": 7005.0,
+        "material": 7215.0,
+        "subcontract": 0.0
+      }
+    },
+    {
+      "cost_code": "1521321000B",
+      "cost_code_id": "f37bf499-f990-42b5-beab-07fd7a7beab7",
+      "job_id": "be303f30-0b7f-4040-a603-9124335416d9",
+      "job_code": "25071",
+      "description": "Instl 2\" Sleeve Trucking Cl 6 Irrigation Sleeve",
+      "planned_budget": 488.0,
+      "actual_cost": 488.6,
+      "utilization_pct": 100.1,
+      "variance": -0.6,
+      "status": "OVER_RISK",
+      "budget_breakdown": {
+        "labor": 38.0,
+        "equipment": 46.0,
+        "material": 404.0,
+        "subcontract": 0.0
+      }
+    },
+    {
+      "cost_code": "1120200203B",
+      "cost_code_id": "10465451-9589-4bdd-9176-5779e63abe6f",
+      "job_id": "be303f30-0b7f-4040-a603-9124335416d9",
+      "job_code": "25071",
+      "description": "Removal of Curg & Gutter TRK-Haul Conc to Shievers (C&G)",
+      "planned_budget": 4334.0,
+      "actual_cost": 3073.12,
+      "utilization_pct": 70.9,
+      "variance": 1260.88,
+      "status": "ON_TRACK",
+      "budget_breakdown": {
+        "labor": 2135.0,
+        "equipment": 2199.0,
+        "material": 0.0,
+        "subcontract": 0.0
+      }
+    }
+  ]
+}

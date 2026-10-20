@@ -1,0 +1,2069 @@
+{
+  "status_code": 200,
+  "url": "https://api.hcssapps.com/heavyjob/api/v1/payItems?jobId=4e94268c-5630-4b7a-bba6-8000efbb65e1",
+  "response": {
+    "results": [
+      {
+        "id": "adff5dee-2538-4009-acf0-0bcacef67543",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61310000",
+        "description": "Wiring",
+        "status": "active",
+        "ownerCode": "613-10000",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 59190.43,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "adff5dee-2538-4009-acf0-0bcacef67543",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "4ab1c8b9-014b-4f6c-bc5e-d9c8b4147faf",
+            "costCodeCode": "61310000",
+            "costCodeDescription": "Wiring"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "3bc12de1-e744-4c69-8ea2-0bf3437e15db",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61300200",
+        "description": "2 In Elec Cond",
+        "status": "active",
+        "ownerCode": "613-00200",
+        "contractQuantity": 4035.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 20.14,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "3bc12de1-e744-4c69-8ea2-0bf3437e15db",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "427f6649-fced-46a9-83a7-6d1e64c164a3",
+            "costCodeCode": "61300200C",
+            "costCodeDescription": "Furnish & Haul Class 6 - 2\" conduit"
+          },
+          {
+            "payItemId": "3bc12de1-e744-4c69-8ea2-0bf3437e15db",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "314d37e7-4b6c-46bb-8578-9ab7a7cf942f",
+            "costCodeCode": "61300200A",
+            "costCodeDescription": "Ex / Lay / BF 2\" Light Pole Conduit"
+          },
+          {
+            "payItemId": "3bc12de1-e744-4c69-8ea2-0bf3437e15db",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "38444470-e89a-46ba-bd90-0d81f7560d28",
+            "costCodeCode": "61300200B",
+            "costCodeDescription": "Lay 2\" Conduit"
+          },
+          {
+            "payItemId": "3bc12de1-e744-4c69-8ea2-0bf3437e15db",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "0ff6c555-9f7e-4de3-b7d7-05966e849072",
+            "costCodeCode": "61300200D",
+            "costCodeDescription": "Haul & Dispost Excess Dirt - 2\" conduit"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "dbf15a94-5f68-48bf-8ac8-0d2465e1e960",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61307011",
+        "description": "Pull Box (11\"x18\"x12\")",
+        "status": "active",
+        "ownerCode": "613-07011",
+        "contractQuantity": 14.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 1045.48,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "dbf15a94-5f68-48bf-8ac8-0d2465e1e960",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "5f151c80-6cd5-4bcb-b5bd-31431cf62f2c",
+            "costCodeCode": "61307011",
+            "costCodeDescription": "Furnish & Install Pull Box"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "2788c88e-7cec-440c-a61a-0e700f47de75",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "10000000",
+        "description": "Quality Control and Materials Testing",
+        "status": "active",
+        "ownerCode": "100-00000",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 35393.46,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "2788c88e-7cec-440c-a61a-0e700f47de75",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "f7eec543-4482-4d69-9f5b-4ea0c23d34a1",
+            "costCodeCode": "10000000",
+            "costCodeDescription": "Quality Control and Materials Testing"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "a8661089-5763-4833-bdfd-1018d203f3c7",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61340010",
+        "description": "Light Standard Foundation",
+        "status": "active",
+        "ownerCode": "613-40010",
+        "contractQuantity": 14.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 2828.01,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "a8661089-5763-4833-bdfd-1018d203f3c7",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "99fb8353-7ab5-4d75-bac2-e1138c3068bb",
+            "costCodeCode": "61340010B",
+            "costCodeDescription": "Ex / Pour / BF Foundation"
+          },
+          {
+            "payItemId": "a8661089-5763-4833-bdfd-1018d203f3c7",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "a4968c48-cb9f-466a-a69c-14e606f2215e",
+            "costCodeCode": "61340010A",
+            "costCodeDescription": "Pothole foundations"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "1c1dc300-6df9-4ee4-84ec-12d283c0bd2b",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20800051",
+        "description": "Reset Structure",
+        "status": "active",
+        "ownerCode": "208-00051",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 5654.1,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "1c1dc300-6df9-4ee4-84ec-12d283c0bd2b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "2ab7ab11-9326-40c3-ae6b-9ae2b44be441",
+            "costCodeCode": "20800051B",
+            "costCodeDescription": "Furnish & Haul Class 6 (reset structure)"
+          },
+          {
+            "payItemId": "1c1dc300-6df9-4ee4-84ec-12d283c0bd2b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "de020088-ade7-4da0-9f91-08163a80f818",
+            "costCodeCode": "20800051C",
+            "costCodeDescription": "Haul & Dispost Excess Dirt (reset structure)"
+          },
+          {
+            "payItemId": "1c1dc300-6df9-4ee4-84ec-12d283c0bd2b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "daa11fd6-656d-4681-b467-6daabcbadb59",
+            "costCodeCode": "20800051A",
+            "costCodeDescription": "Ex / Lay / BF Inlet (Reset)"
+          },
+          {
+            "payItemId": "1c1dc300-6df9-4ee4-84ec-12d283c0bd2b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "2fdf6074-c012-47ac-bb4d-6b5ef5bd8466",
+            "costCodeCode": "20800051D",
+            "costCodeDescription": "Grout Pipe (reset structure)"
+          },
+          {
+            "payItemId": "1c1dc300-6df9-4ee4-84ec-12d283c0bd2b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "a50081cd-ac70-469a-b4fa-deb5dcee24fb",
+            "costCodeCode": "20800051E",
+            "costCodeDescription": "Concrete Invert (reset structure)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "870566fc-2f31-4430-aaf3-16e7976700e4",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "21004010",
+        "description": "Landscape Restoration",
+        "status": "active",
+        "ownerCode": "210-04010",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 24159.36,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "870566fc-2f31-4430-aaf3-16e7976700e4",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "d4250802-adfc-4e81-8d20-6daf0d9d7e6b",
+            "costCodeCode": "21004010",
+            "costCodeDescription": "Landscape Restoration"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "5f98dd3a-c731-40e7-a8ea-19fd5bbffc43",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "21000001",
+        "description": "Reset Flashing Beacon",
+        "status": "active",
+        "ownerCode": "210-00001",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 1824.36,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "5f98dd3a-c731-40e7-a8ea-19fd5bbffc43",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "12f3048f-af81-41f7-ab1b-934deb237ccf",
+            "costCodeCode": "21000001",
+            "costCodeDescription": "Reset Flashing Beacon"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "cde70455-acae-457c-9a87-1db8ddb497fc",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "21000825",
+        "description": "Adjust Valve Box",
+        "status": "active",
+        "ownerCode": "210-00825",
+        "contractQuantity": 5.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 592.77,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "cde70455-acae-457c-9a87-1db8ddb497fc",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "02945255-38c2-4daa-83f2-ee0d09818bfa",
+            "costCodeCode": "21000825",
+            "costCodeDescription": "ADJUST VALVE BOX"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "0a4432d0-8176-443b-9ff8-20c83bfa1761",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200245",
+        "description": "Remove Flashing Beacon",
+        "status": "active",
+        "ownerCode": "202-00245",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 1005.24,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "0a4432d0-8176-443b-9ff8-20c83bfa1761",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "9e2248a5-71eb-4a41-971d-c93b066b4bb0",
+            "costCodeCode": "20200245",
+            "costCodeDescription": "Remove Flashing Beacon"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "a4494c1e-2d85-4457-a4a4-25c8a844fe53",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61300600",
+        "description": "6 In Electrical Cond",
+        "status": "active",
+        "ownerCode": "613-00600",
+        "contractQuantity": 1591.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 51.1,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "a4494c1e-2d85-4457-a4a4-25c8a844fe53",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "4d290091-68d9-429d-b699-a17ccb2251ff",
+            "costCodeCode": "61300600A",
+            "costCodeDescription": "Ex / Lay / BF 6\" Conduit"
+          },
+          {
+            "payItemId": "a4494c1e-2d85-4457-a4a4-25c8a844fe53",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "6f8522b7-27ec-4213-80a9-45808a172c65",
+            "costCodeCode": "61300600C",
+            "costCodeDescription": "Haul & Dispost Excess Dirt - ductbank"
+          },
+          {
+            "payItemId": "a4494c1e-2d85-4457-a4a4-25c8a844fe53",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "e14be72d-67c9-4c8b-abd9-4ea0e41e2148",
+            "costCodeCode": "61300600B",
+            "costCodeDescription": "Furnish & Haul Class 6 - ductbank"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "7df3925c-a2bf-4bb8-b0d4-2674f4f4bbb2",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60419105",
+        "description": "Inlet Type R L5 (5 Foot)",
+        "status": "active",
+        "ownerCode": "604-19105",
+        "contractQuantity": 2.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 15490.89,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "7df3925c-a2bf-4bb8-b0d4-2674f4f4bbb2",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "3f09f1fb-14a7-47d3-90fe-4cc6c0a7b0a0",
+            "costCodeCode": "60419105F",
+            "costCodeDescription": "Concrete Invert (type R 5ft)"
+          },
+          {
+            "payItemId": "7df3925c-a2bf-4bb8-b0d4-2674f4f4bbb2",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "7de2cd90-c19f-4102-aa4f-23b7acdf9c24",
+            "costCodeCode": "60419105A",
+            "costCodeDescription": "Ex / Lay / BF Inlet (type R 5ft)"
+          },
+          {
+            "payItemId": "7df3925c-a2bf-4bb8-b0d4-2674f4f4bbb2",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "3ab6b602-c3dd-4469-8f74-eead1f322118",
+            "costCodeCode": "60419105E",
+            "costCodeDescription": "Couple & Extend Pup (type R 5ft)"
+          },
+          {
+            "payItemId": "7df3925c-a2bf-4bb8-b0d4-2674f4f4bbb2",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "d5a7f494-87a3-4943-80c4-9604efd08385",
+            "costCodeCode": "60419105B",
+            "costCodeDescription": "Furnish & Haul Class 6 (type R 5ft)"
+          },
+          {
+            "payItemId": "7df3925c-a2bf-4bb8-b0d4-2674f4f4bbb2",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "8c145e37-a840-4e46-8757-1db79067f144",
+            "costCodeCode": "60419105C",
+            "costCodeDescription": "Haul & Dispost Excess Dirt (type R 5ft)"
+          },
+          {
+            "payItemId": "7df3925c-a2bf-4bb8-b0d4-2674f4f4bbb2",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "dd603e43-4739-430a-a01b-788467bc853a",
+            "costCodeCode": "60419105D",
+            "costCodeDescription": "Grout Pipe (type R 5ft)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "ed415f6e-ee06-46de-8201-2f093976b70a",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200021",
+        "description": "Remove Pipe (12\" Storm)",
+        "status": "active",
+        "ownerCode": "202-00019",
+        "contractQuantity": 31.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 47.62,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "ed415f6e-ee06-46de-8201-2f093976b70a",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "f303dd90-7d05-4049-b017-f765e21959d7",
+            "costCodeCode": "20200021B",
+            "costCodeDescription": "Haul and Dispose 12\" storm"
+          },
+          {
+            "payItemId": "ed415f6e-ee06-46de-8201-2f093976b70a",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "ffba5e29-4cbb-45e0-9c50-b9ec75f4de74",
+            "costCodeCode": "20200021A",
+            "costCodeDescription": "Remove Pipe (12\" Storm)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "36120cd1-e5a2-4f5b-a8a2-3417fe9bf6d3",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60921013",
+        "description": "Curb and Gutter Type 2 I-M (Special)",
+        "status": "active",
+        "ownerCode": "609-21013",
+        "contractQuantity": 40.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 67.65,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "36120cd1-e5a2-4f5b-a8a2-3417fe9bf6d3",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "8e69bf10-7999-4143-97b1-c3cc1a7061fd",
+            "costCodeCode": "60921013",
+            "costCodeDescription": "Curb and Gutter Type 2 I-M (Special)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "33b98ffc-4f45-436e-9af8-355aa51deafa",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60800006",
+        "description": "Concrete Sidewalk (6 In)",
+        "status": "active",
+        "ownerCode": "608-00006",
+        "contractQuantity": 4250.0,
+        "unitOfMeasure": "SY",
+        "unitPrice": 85.77,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "33b98ffc-4f45-436e-9af8-355aa51deafa",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "d71999c1-ac26-49ba-9d50-b0383fd7dacd",
+            "costCodeCode": "60800006",
+            "costCodeDescription": "Concrete Sidewalk (6 In)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "d124050b-91b6-4444-a510-35f945a50627",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "630",
+        "description": "Mobilization",
+        "status": "active",
+        "ownerCode": "626-00000",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 206533.96,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "d124050b-91b6-4444-a510-35f945a50627",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "0ffaadf7-8cd0-44f5-8c08-aa6d714d655a",
+            "costCodeCode": "16301111B",
+            "costCodeDescription": "Mobilization-PM / Superintendent"
+          },
+          {
+            "payItemId": "d124050b-91b6-4444-a510-35f945a50627",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "f6678a00-dc19-4537-babc-6ee7bafa2bb0",
+            "costCodeCode": "16301111D",
+            "costCodeDescription": "Mobilization Sub Mob"
+          },
+          {
+            "payItemId": "d124050b-91b6-4444-a510-35f945a50627",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "7b63486f-1073-4835-8a9a-31b2085eb1b5",
+            "costCodeCode": "16301111C",
+            "costCodeDescription": "Mobilization Construction Water"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "c8bbc051-c68d-403f-accf-38fd2c9dee21",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "90000",
+        "description": "INDIRECT",
+        "status": "active",
+        "ownerCode": "",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 0.0,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "c8bbc051-c68d-403f-accf-38fd2c9dee21",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "a20c1333-ba37-461c-96ee-d00f52b9419c",
+            "costCodeCode": "90000",
+            "costCodeDescription": "INDIRECT"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "006b08b0-9b6c-40da-bcaa-394f27256e78",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60330018",
+        "description": "18 Inch Steel End Section",
+        "status": "active",
+        "ownerCode": "603-30018",
+        "contractQuantity": 3.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 2278.12,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "006b08b0-9b6c-40da-bcaa-394f27256e78",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "5d2fc700-3fe3-4d6b-b74c-1aa4d204962a",
+            "costCodeCode": "60330018",
+            "costCodeDescription": "Install FES & Trash Grate"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "5a65f00d-0bdb-4704-b3b1-3a418c87738b",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "21201200",
+        "description": "ABC (CLASS 6)",
+        "status": "active",
+        "ownerCode": "212-01200",
+        "contractQuantity": 1890.0,
+        "unitOfMeasure": "CY",
+        "unitPrice": 94.58,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "5a65f00d-0bdb-4704-b3b1-3a418c87738b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "944c8e08-f1c3-4272-8dbf-17c53de5b592",
+            "costCodeCode": "21201200D",
+            "costCodeDescription": "Shoulder Sidewalk"
+          },
+          {
+            "payItemId": "5a65f00d-0bdb-4704-b3b1-3a418c87738b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "7af50b98-c4e9-422c-ac67-51c09895f23f",
+            "costCodeCode": "21201200E",
+            "costCodeDescription": "Install & Fine Grade Bus & Ramps"
+          },
+          {
+            "payItemId": "5a65f00d-0bdb-4704-b3b1-3a418c87738b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "16a15802-b51f-4554-8924-de69a0de926b",
+            "costCodeCode": "21201200B",
+            "costCodeDescription": "Install & bluetop CL6 Sidewalk & buffer"
+          },
+          {
+            "payItemId": "5a65f00d-0bdb-4704-b3b1-3a418c87738b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "851938f7-9530-4e0c-ac21-0475c42d456b",
+            "costCodeCode": "21201200C",
+            "costCodeDescription": "Install & Fine Grade CL6 C&G / Roadway"
+          },
+          {
+            "payItemId": "5a65f00d-0bdb-4704-b3b1-3a418c87738b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "352eabf4-5b6d-4c2f-b65b-7f8c68a3ec7b",
+            "costCodeCode": "21201200A",
+            "costCodeDescription": "Furnish & Haul CL6 (roadway)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "f1e80544-a410-4127-b0d2-3d3a5405b02f",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61320000",
+        "description": "Light Standard & Luminaire (Install Only)",
+        "status": "active",
+        "ownerCode": "613-20000",
+        "contractQuantity": 14.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 1811.95,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "f1e80544-a410-4127-b0d2-3d3a5405b02f",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "6c858fcb-7901-4b02-ac14-09ad1ade036b",
+            "costCodeCode": "61320000",
+            "costCodeDescription": "Light Standard & Luminaire (Install Only)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "4df276df-9210-4bd6-9ee6-3e5df7a5a353",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "62305064",
+        "description": "12 Inch Gate Valve",
+        "status": "active",
+        "ownerCode": "623-05064",
+        "contractQuantity": 5.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 5654.48,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "4df276df-9210-4bd6-9ee6-3e5df7a5a353",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "31ae1253-184b-4829-885b-4909ff6c55bc",
+            "costCodeCode": "62305064",
+            "costCodeDescription": "12  INCH GATE VALVE"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "c65710b3-a77d-4544-b964-3e5f1aba8e6a",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "63000016",
+        "description": "Traffic Control (Special)",
+        "status": "active",
+        "ownerCode": "630-00016",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 124460.09,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "c65710b3-a77d-4544-b964-3e5f1aba8e6a",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "bdfb3cea-e86a-49ad-b65a-12a1acd8cca2",
+            "costCodeCode": "63000016B",
+            "costCodeDescription": "Flagging"
+          },
+          {
+            "payItemId": "c65710b3-a77d-4544-b964-3e5f1aba8e6a",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "012c9042-ce28-4c7c-b485-9e27cddf341a",
+            "costCodeCode": "63000016A",
+            "costCodeDescription": "TC Management"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "d01b3f37-620d-4c5d-b98f-3f154b9e9638",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20800035",
+        "description": "Storm Drain Inlet Protection (Type I)",
+        "status": "active",
+        "ownerCode": "208-00035",
+        "contractQuantity": 14.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 195.49,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "d01b3f37-620d-4c5d-b98f-3f154b9e9638",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "e6764f41-5281-4aa7-94e0-051c66ecc462",
+            "costCodeCode": "20800035",
+            "costCodeDescription": "Furnish & Install Inlet Protection"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "dee60f05-340d-4f39-8621-4171860b341e",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20201000",
+        "description": "Sawing Asphalt Mat (6 In)",
+        "status": "active",
+        "ownerCode": "202-01000",
+        "contractQuantity": 4203.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 6.08,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "dee60f05-340d-4f39-8621-4171860b341e",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "cd0edb29-d33c-4ab7-82cd-87831d8fe67f",
+            "costCodeCode": "20201000",
+            "costCodeDescription": "Sawing Asphalt Mat (6 In)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "b18be6f4-3fa9-44eb-9811-45db0df51316",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200203",
+        "description": "Remove Asphalt Mat (Planing)",
+        "status": "active",
+        "ownerCode": "202-00203",
+        "contractQuantity": 5171.0,
+        "unitOfMeasure": "SY",
+        "unitPrice": 5.23,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "b18be6f4-3fa9-44eb-9811-45db0df51316",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "509e647c-7874-445d-9cb8-3e2ab9a82f30",
+            "costCodeCode": "20200203A",
+            "costCodeDescription": "Remove Asphalt Mat"
+          },
+          {
+            "payItemId": "b18be6f4-3fa9-44eb-9811-45db0df51316",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "27cacf4b-3507-4fd7-aa96-cd8586713f43",
+            "costCodeCode": "20200203B",
+            "costCodeDescription": "Haul & Dispose of Asphalt (planing)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "6e6af1ae-786c-4683-bbb3-4676737b950a",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61978048",
+        "description": "6 Inch Fire Hydrant",
+        "status": "active",
+        "ownerCode": "619-78048",
+        "contractQuantity": 4.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 9422.75,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "6e6af1ae-786c-4683-bbb3-4676737b950a",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "9f6ecf65-4450-40d1-bfd1-e906bcf17b56",
+            "costCodeCode": "61978048D",
+            "costCodeDescription": "Haul and Dispose Dirt (fire hydrant)"
+          },
+          {
+            "payItemId": "6e6af1ae-786c-4683-bbb3-4676737b950a",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "eb0e671a-8d64-4ba1-adce-a28fcc5557db",
+            "costCodeCode": "61978048A",
+            "costCodeDescription": "Ex / Lay / BF Hydrant"
+          },
+          {
+            "payItemId": "6e6af1ae-786c-4683-bbb3-4676737b950a",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "5fab91e2-4e32-4683-b720-b09de0889caa",
+            "costCodeCode": "61978048B",
+            "costCodeDescription": "Tees 90s & thrust Block (fire hydrant)"
+          },
+          {
+            "payItemId": "6e6af1ae-786c-4683-bbb3-4676737b950a",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "b6052ccb-ad9f-43ca-96c2-de4b9d3f0d4d",
+            "costCodeCode": "61978048C",
+            "costCodeDescription": "Furnish & Haul Class 6 (fire hydrant)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "82e8b7f6-57d1-4a50-a92b-472b65fdd5bf",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200035",
+        "description": "Remove Sidewalk",
+        "status": "active",
+        "ownerCode": "202-00035",
+        "contractQuantity": 77.0,
+        "unitOfMeasure": "SY",
+        "unitPrice": 16.83,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "82e8b7f6-57d1-4a50-a92b-472b65fdd5bf",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "7dad4487-72fb-482c-ad13-ca5d148429aa",
+            "costCodeCode": "20200035A",
+            "costCodeDescription": "Remove Sidewalk"
+          },
+          {
+            "payItemId": "82e8b7f6-57d1-4a50-a92b-472b65fdd5bf",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "4a8f0352-2413-4d67-bcab-060d531cc5dc",
+            "costCodeCode": "20200035B",
+            "costCodeDescription": "Haul & Dispose Sidewalk (Rifle Creek)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "4a784991-ccad-48fd-a292-4b6dc9b4a674",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200810",
+        "description": "Remove Fence",
+        "status": "active",
+        "ownerCode": "202-00810",
+        "contractQuantity": 19.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 26.52,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "4a784991-ccad-48fd-a292-4b6dc9b4a674",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "be7b4ab8-6503-4898-8d9c-9d1f3b55d30f",
+            "costCodeCode": "20200810",
+            "costCodeDescription": "Remove Fence"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "e0317d32-a00c-417d-80cd-4e61c71deb8e",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60419205",
+        "description": "Inlet Type R L10 (5 Foot)",
+        "status": "active",
+        "ownerCode": "604-19205",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 25377.41,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "e0317d32-a00c-417d-80cd-4e61c71deb8e",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "08c857d7-5c32-4a2f-8e98-7b3f3e7457ee",
+            "costCodeCode": "60419205A",
+            "costCodeDescription": "Ex / Lay / BF Inlet (type R 10ft)"
+          },
+          {
+            "payItemId": "e0317d32-a00c-417d-80cd-4e61c71deb8e",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "6c2bf57f-5ffa-4862-aa2a-499d6f63478d",
+            "costCodeCode": "60419205E",
+            "costCodeDescription": "Concrete Invert (type R 10ft)"
+          },
+          {
+            "payItemId": "e0317d32-a00c-417d-80cd-4e61c71deb8e",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "9d781549-2759-4cd5-90c7-48edcff9aaf7",
+            "costCodeCode": "60419205B",
+            "costCodeDescription": "Furnish & Haul Class 6 (type R 10ft)"
+          },
+          {
+            "payItemId": "e0317d32-a00c-417d-80cd-4e61c71deb8e",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "f9a39984-5ae9-42cf-b558-b8f8d29c0ab8",
+            "costCodeCode": "60419205C",
+            "costCodeDescription": "Haul & Dispost Excess Dirt (type R 10ft)"
+          },
+          {
+            "payItemId": "e0317d32-a00c-417d-80cd-4e61c71deb8e",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "6711b632-6ef3-4eca-b226-94a93724fee9",
+            "costCodeCode": "60419205D",
+            "costCodeDescription": "Grout Pipe (type R 10ft)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "9a55cbf1-6ec7-4c76-b21c-56af25d324e8",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200028",
+        "description": "Remove Delineator",
+        "status": "active",
+        "ownerCode": "202-00028",
+        "contractQuantity": 52.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 53.56,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "9a55cbf1-6ec7-4c76-b21c-56af25d324e8",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "90e1fd48-e140-499b-93bb-07952d931798",
+            "costCodeCode": "20200028",
+            "costCodeDescription": "Remove Delineator"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "ca72502b-b91a-45c6-ab8c-58e11b70cff6",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20800070",
+        "description": "Reset Sign Panel",
+        "status": "active",
+        "ownerCode": "208-00070",
+        "contractQuantity": 2.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 1026.97,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "ca72502b-b91a-45c6-ab8c-58e11b70cff6",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "efd9d385-00bb-41b8-991a-6476a0ba98c0",
+            "costCodeCode": "20800070",
+            "costCodeDescription": "reset sign in new foundation"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "dccbbdce-0836-45e0-9a82-6926c5c6159d",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "41201000",
+        "description": "Culvert Lining (24 In)",
+        "status": "active",
+        "ownerCode": "412-01000",
+        "contractQuantity": 167.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 329.32,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "dccbbdce-0836-45e0-9a82-6926c5c6159d",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "ed2ff5ce-5171-43ba-a05d-dbba7521c53a",
+            "costCodeCode": "41201000B",
+            "costCodeDescription": "Small Dam & Pumping"
+          },
+          {
+            "payItemId": "dccbbdce-0836-45e0-9a82-6926c5c6159d",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "72f1b02d-02e4-478c-8b5b-a18fd0272745",
+            "costCodeCode": "41201000A",
+            "costCodeDescription": "Culvert Lining (24 In)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "956655a3-e115-45d4-9ca8-6ac1148d846e",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61300300",
+        "description": "3 In Electrical Cond",
+        "status": "active",
+        "ownerCode": "613-00300",
+        "contractQuantity": 1580.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 15.69,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "956655a3-e115-45d4-9ca8-6ac1148d846e",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "81880709-c423-4a39-9f2d-07b3a720f8a3",
+            "costCodeCode": "61300300",
+            "costCodeDescription": "Ex / Lay / BF  Conduit 3\""
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "a79acc7f-59ee-4863-a51a-6b4a95e3fd18",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200020",
+        "description": "Remove Erosion Control BMPS",
+        "status": "active",
+        "ownerCode": "202-00028",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 5671.77,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "a79acc7f-59ee-4863-a51a-6b4a95e3fd18",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "76d9d025-aeac-47fc-9e7d-5ed662fb8697",
+            "costCodeCode": "20200020",
+            "costCodeDescription": "Remove Erosion Control BMPS"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "ab2f868b-b5cc-42c6-923b-6b603386980f",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20100005",
+        "description": "Removal of Debris",
+        "status": "active",
+        "ownerCode": "201-00005",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 8917.99,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "ab2f868b-b5cc-42c6-923b-6b603386980f",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "f812cfbd-7d45-45fc-a89b-90a2e1ab6d64",
+            "costCodeCode": "20100005A",
+            "costCodeDescription": "Removal of Debris"
+          },
+          {
+            "payItemId": "ab2f868b-b5cc-42c6-923b-6b603386980f",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "2306a529-ca7e-44b4-a89b-fa202896794d",
+            "costCodeCode": "20100005B",
+            "costCodeDescription": "Haul Off Debris"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "8d0a30bf-a913-4f88-a5b0-6b7aa31796d9",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "30406007",
+        "description": "Concrete Pavement (10 Inch)",
+        "status": "active",
+        "ownerCode": "304-06007",
+        "contractQuantity": 200.0,
+        "unitOfMeasure": "SY",
+        "unitPrice": 167.18,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "8d0a30bf-a913-4f88-a5b0-6b7aa31796d9",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "65bd41ff-f994-49aa-bdd4-861c60bcbf73",
+            "costCodeCode": "30406007",
+            "costCodeDescription": "Concrete Pavement (10 Inch)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "b4f0810e-3919-4f54-81ed-701d90126c1d",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20800045",
+        "description": "Vehicle Tracking Pad",
+        "status": "active",
+        "ownerCode": "208-00045",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 5985.56,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "b4f0810e-3919-4f54-81ed-701d90126c1d",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "b894ac0f-0cef-49de-92c2-90fa279ba670",
+            "costCodeCode": "20800045",
+            "costCodeDescription": "Traking Pad"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "ba52ffa6-900a-4836-b6b1-7d9ac2e0bff9",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20300000",
+        "description": "Potholing",
+        "status": "active",
+        "ownerCode": "203-00000",
+        "contractQuantity": 36.0,
+        "unitOfMeasure": "HOUR",
+        "unitPrice": 445.69,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "ba52ffa6-900a-4836-b6b1-7d9ac2e0bff9",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "65a09522-f8d2-4fd9-8754-6ddb67ba2310",
+            "costCodeCode": "20300000",
+            "costCodeDescription": "Potholing"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "a5b5aa35-24d7-4a3f-ae72-814ff18f9b68",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "21004050",
+        "description": "Rock Mulch (4\"-6\") (Weed Free)",
+        "status": "active",
+        "ownerCode": "210-04050",
+        "contractQuantity": 20217.0,
+        "unitOfMeasure": "SF",
+        "unitPrice": 4.05,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "a5b5aa35-24d7-4a3f-ae72-814ff18f9b68",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "7e8945de-7d4e-4b59-915a-1d4336b028c2",
+            "costCodeCode": "21004050",
+            "costCodeDescription": "Rock Mulch (4\"-6\") (Weed Free)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "d27b2076-f615-487f-a3da-834b47335aeb",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61900007",
+        "description": "Connect to Existing waterline",
+        "status": "active",
+        "ownerCode": "619-00007",
+        "contractQuantity": 2.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 5096.83,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "d27b2076-f615-487f-a3da-834b47335aeb",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "1364fdbd-08ab-40f6-b089-661824fc04da",
+            "costCodeCode": "61900007",
+            "costCodeDescription": "Tie-in to existing wateline"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "07a20f8e-7fad-4354-aa7b-8a9f534e7f72",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60800010",
+        "description": "Concrete Curb Ramp",
+        "status": "active",
+        "ownerCode": "608-00010",
+        "contractQuantity": 35.0,
+        "unitOfMeasure": "SY",
+        "unitPrice": 270.58,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "07a20f8e-7fad-4354-aa7b-8a9f534e7f72",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "8b68e11e-1398-4073-a438-def89768291e",
+            "costCodeCode": "60800010",
+            "costCodeDescription": "Concrete Curb Ramp"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "aa820f34-cc21-4e07-9c8d-90917449b7ba",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20300050",
+        "description": "Aggregate Bag",
+        "status": "active",
+        "ownerCode": "203-00050",
+        "contractQuantity": 32.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 20.29,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "aa820f34-cc21-4e07-9c8d-90917449b7ba",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "a822b19b-0013-419b-9011-24f58e38e6ba",
+            "costCodeCode": "20300050",
+            "costCodeDescription": "AGGREGATE BAG"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "c63912fa-e185-49bc-866b-963827fd1dc1",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60921020",
+        "description": "Curb and Gutter Type 2 II-B",
+        "status": "active",
+        "ownerCode": "609-21020",
+        "contractQuantity": 1171.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 32.62,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "c63912fa-e185-49bc-866b-963827fd1dc1",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "0bef60c0-118c-49fa-9566-72d4db957988",
+            "costCodeCode": "60921020",
+            "costCodeDescription": "Curb and Gutter Type 2 II-B"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "8074c235-59ca-44d7-b260-969069fe4171",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61400011",
+        "description": "Sign Panel (Cl1)",
+        "status": "active",
+        "ownerCode": "614-00011",
+        "contractQuantity": 3.0,
+        "unitOfMeasure": "SF",
+        "unitPrice": 44.78,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "8074c235-59ca-44d7-b260-969069fe4171",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "2c06a0e5-a65a-4942-a138-b8b66b78f497",
+            "costCodeCode": "61400011",
+            "costCodeDescription": "SIGN PANEL (CLASS I)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "83a0fce1-ad07-4d95-b912-a1a209f53e2b",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61300400",
+        "description": "4 In Electrical Cond",
+        "status": "active",
+        "ownerCode": "613-00400",
+        "contractQuantity": 1580.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 16.76,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "83a0fce1-ad07-4d95-b912-a1a209f53e2b",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "d5b2e946-71dc-4422-808e-4199e576b242",
+            "costCodeCode": "61300400",
+            "costCodeDescription": "Ex / Lay / BF  Conduit 4\""
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "c9a5ff2a-3a32-4c84-803f-a23bede30be6",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60921023",
+        "description": "Curb and Gutter Type 2 I-B (Special)",
+        "status": "active",
+        "ownerCode": "609-21023",
+        "contractQuantity": 2565.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 32.62,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "c9a5ff2a-3a32-4c84-803f-a23bede30be6",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "57f616e5-6059-4025-9a62-532ed82d8b79",
+            "costCodeCode": "60921023",
+            "costCodeDescription": "Curb and Gutter Type 2 I-B (Special)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "24814164-cb9d-47eb-9cd5-a3c069441be7",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "70070010",
+        "description": "F/A Minor Contract Revisions",
+        "status": "active",
+        "ownerCode": "700-70010",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "FA",
+        "unitPrice": 100000.0,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "24814164-cb9d-47eb-9cd5-a3c069441be7",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "dd58d2fb-721e-4365-bc00-5f6ca6496af5",
+            "costCodeCode": "70070010",
+            "costCodeDescription": "F/A Minor Contract Revisions"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "2e2188af-c925-4595-a1fe-a5bc4786d0e3",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200200",
+        "description": "Remove Asphalt Mat",
+        "status": "active",
+        "ownerCode": "202-00200",
+        "contractQuantity": 6475.0,
+        "unitOfMeasure": "SY",
+        "unitPrice": 4.42,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "2e2188af-c925-4595-a1fe-a5bc4786d0e3",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "975b3154-8451-4c90-a4bb-5618ab253c8b",
+            "costCodeCode": "20200200B",
+            "costCodeDescription": "Haul & Dispose of Asphalt"
+          },
+          {
+            "payItemId": "2e2188af-c925-4595-a1fe-a5bc4786d0e3",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "8a318447-6383-4c55-bb18-278963260abc",
+            "costCodeCode": "20200200A",
+            "costCodeDescription": "Remove Asphalt Mat"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "784f5671-29ba-4f11-870a-a844cb55269a",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200825",
+        "description": "Dust Abatement",
+        "status": "active",
+        "ownerCode": "202-00825",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 22502.92,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "784f5671-29ba-4f11-870a-a844cb55269a",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "c6b91417-eb28-42d6-8af7-52079f3c110a",
+            "costCodeCode": "20200825",
+            "costCodeDescription": "Dust Abatement"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "182ba3d3-67bc-4d59-9a5b-aa03ac4cd5e7",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "62305048",
+        "description": "6 Inch Gate Valve",
+        "status": "active",
+        "ownerCode": "623-05048",
+        "contractQuantity": 4.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 2634.57,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "182ba3d3-67bc-4d59-9a5b-aa03ac4cd5e7",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "bb744789-c98f-436d-ac1d-075cc12ab909",
+            "costCodeCode": "62305048",
+            "costCodeDescription": "6 INCH GATE VALVE"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "b804c577-7cd7-4527-a0c8-aa060e7f22ea",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20205026",
+        "description": "Unsuitable Material",
+        "status": "active",
+        "ownerCode": "202-05026",
+        "contractQuantity": 270.0,
+        "unitOfMeasure": "CY",
+        "unitPrice": 55.19,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "b804c577-7cd7-4527-a0c8-aa060e7f22ea",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "fd705ab4-1940-483a-87a1-fc9192c0fc1f",
+            "costCodeCode": "20205026B",
+            "costCodeDescription": "Haul off Unsuitable Material"
+          },
+          {
+            "payItemId": "b804c577-7cd7-4527-a0c8-aa060e7f22ea",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "c01c9b20-99c8-4c8a-989a-94f18d20ea55",
+            "costCodeCode": "20205026A",
+            "costCodeDescription": "Excavate Unsuitable Material"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "7d972d41-63e8-4a54-998b-aaaa18350ccf",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "40334751",
+        "description": "Culvert Lining (18 In)",
+        "status": "active",
+        "ownerCode": "403-34751",
+        "contractQuantity": 181.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 247.68,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "7d972d41-63e8-4a54-998b-aaaa18350ccf",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "e48ef7b0-3824-4964-b9fa-7031ebd3c04a",
+            "costCodeCode": "40334751B",
+            "costCodeDescription": "Small Dam & Pumping"
+          },
+          {
+            "payItemId": "7d972d41-63e8-4a54-998b-aaaa18350ccf",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "17222096-4481-496d-a53c-5a750d1bb7d3",
+            "costCodeCode": "40334751A",
+            "costCodeDescription": "Culvert Lining (18 In)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "aeaaa9c4-557a-499e-a213-ab4f597f5549",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61950960",
+        "description": "12 Inch Plastic Pipe (C900 Watermain)",
+        "status": "active",
+        "ownerCode": "619-50960",
+        "contractQuantity": 1581.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 215.25,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "aeaaa9c4-557a-499e-a213-ab4f597f5549",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "57878622-1a61-44cd-a7c8-0bb256de4bb2",
+            "costCodeCode": "61950960E",
+            "costCodeDescription": "Haul and Dispose Dirt (12\" waterline)"
+          },
+          {
+            "payItemId": "aeaaa9c4-557a-499e-a213-ab4f597f5549",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "0c0cbbb3-abb9-476e-9838-93ded0b5ee91",
+            "costCodeCode": "61950960B",
+            "costCodeDescription": "Extra Time - 4 Utility Crossings (12\" waterline)"
+          },
+          {
+            "payItemId": "aeaaa9c4-557a-499e-a213-ab4f597f5549",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "33c5aacc-153f-4391-bc3d-bc583a70ca45",
+            "costCodeCode": "61950960D",
+            "costCodeDescription": "Furnish & Haul Class 6 (12\" waterline)"
+          },
+          {
+            "payItemId": "aeaaa9c4-557a-499e-a213-ab4f597f5549",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "acfcfe8d-d758-4746-bc36-8aa78c3c437e",
+            "costCodeCode": "61950960A",
+            "costCodeDescription": "Ex / Lay / BF Waterline 12\""
+          },
+          {
+            "payItemId": "aeaaa9c4-557a-499e-a213-ab4f597f5549",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "898ed2ca-faa2-4d18-b1bb-2b515e05a27e",
+            "costCodeCode": "61950960C",
+            "costCodeDescription": "Horizontal Bend & Thrust Block (12\" waterline)"
+          },
+          {
+            "payItemId": "aeaaa9c4-557a-499e-a213-ab4f597f5549",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "38260152-ddb8-4840-a833-7ddc969f5d9e",
+            "costCodeCode": "61950960F",
+            "costCodeDescription": "Test Waterline (12\" waterline)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "b8695524-50e0-45db-a9b4-b0013b0381ce",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200019",
+        "description": "Remove Inlet",
+        "status": "active",
+        "ownerCode": "202-00019",
+        "contractQuantity": 2.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 2011.36,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "b8695524-50e0-45db-a9b4-b0013b0381ce",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "f8d3c059-e14b-458d-8516-042784f3474b",
+            "costCodeCode": "20200019A",
+            "costCodeDescription": "Remove Inlet"
+          },
+          {
+            "payItemId": "b8695524-50e0-45db-a9b4-b0013b0381ce",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "31ff4dc6-996d-4f09-a983-a010994b9769",
+            "costCodeCode": "20200019B",
+            "costCodeDescription": "Haul inlet to Rifle Creek"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "624380ff-34eb-471c-b492-b51f496f943c",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "21300067",
+        "description": "HMA (Gr SX) (75) (PG 64-28)",
+        "status": "active",
+        "ownerCode": "213-00067",
+        "contractQuantity": 1432.0,
+        "unitOfMeasure": "TON",
+        "unitPrice": 168.51,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "624380ff-34eb-471c-b492-b51f496f943c",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "f38e6ea2-936b-445a-9d2b-9bbab29637cd",
+            "costCodeCode": "21300067",
+            "costCodeDescription": "HMA (Gr SX) (75) (PG 64-28)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "ecbb9eeb-ddcc-41a2-8406-b75b542bdf77",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61400200",
+        "description": "Steel Signpost (U-2)",
+        "status": "active",
+        "ownerCode": "614-00200",
+        "contractQuantity": 18.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 125.17,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "ecbb9eeb-ddcc-41a2-8406-b75b542bdf77",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "79b9bcd8-cff5-4d35-8f77-499f662c0db9",
+            "costCodeCode": "61400200",
+            "costCodeDescription": "STEEL SIGN SUPPORT (2-1/2 INCH ROUND NP-40)(POST &"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "dcbef84a-0ab6-4250-843a-be1422b54055",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60921900",
+        "description": "Curb and Gutter Type 2 Transition",
+        "status": "active",
+        "ownerCode": "609-21900",
+        "contractQuantity": 52.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 32.62,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "dcbef84a-0ab6-4250-843a-be1422b54055",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "0de9f490-6539-4412-964c-0b9de352dd4c",
+            "costCodeCode": "60921900",
+            "costCodeDescription": "Curb and Gutter Type 2 Transition"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "620389b3-7ad1-41b1-b1e6-c0ddb0bf21d5",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20301597",
+        "description": "Concrete Washout Structure",
+        "status": "active",
+        "ownerCode": "203-01597",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 5321.63,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "620389b3-7ad1-41b1-b1e6-c0ddb0bf21d5",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "ba67a2d3-d509-4547-bd8d-aa07521e7d15",
+            "costCodeCode": "20301597",
+            "costCodeDescription": "Washout"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "d63d10bd-ff30-4ebd-81bc-ced0a101c7bd",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20204060",
+        "description": "Unclassifed Excavation",
+        "status": "active",
+        "ownerCode": "202-04060",
+        "contractQuantity": 975.0,
+        "unitOfMeasure": "CY",
+        "unitPrice": 39.36,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "d63d10bd-ff30-4ebd-81bc-ced0a101c7bd",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "f7680c98-37ce-4857-a710-9321bdbb9992",
+            "costCodeCode": "20204060B",
+            "costCodeDescription": "Haul Off Excess Cut"
+          },
+          {
+            "payItemId": "d63d10bd-ff30-4ebd-81bc-ced0a101c7bd",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "191b42c3-1ce1-4553-a276-def4913d8b2c",
+            "costCodeCode": "20204060C",
+            "costCodeDescription": "Scarify & Recompact Subgrade"
+          },
+          {
+            "payItemId": "d63d10bd-ff30-4ebd-81bc-ced0a101c7bd",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "2f569eac-971d-45db-b234-17422c61ccba",
+            "costCodeCode": "20204060A",
+            "costCodeDescription": "Earthwork - Cut to Fill"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "59bb49d1-503c-487a-b9d6-d0d1e55b34a0",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "62500000",
+        "description": "Construction Surveying",
+        "status": "active",
+        "ownerCode": "625-00000",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 41457.46,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "59bb49d1-503c-487a-b9d6-d0d1e55b34a0",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "5a8178a9-1ef4-426e-88eb-0fdc1f579438",
+            "costCodeCode": "62500000A",
+            "costCodeDescription": "Construction Surveying"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "cf395e04-fdc9-4761-ba0a-d3fefe40a623",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60924008",
+        "description": "Gutter Type 2 (8 Foot)",
+        "status": "active",
+        "ownerCode": "609-24008",
+        "contractQuantity": 72.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 147.98,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "cf395e04-fdc9-4761-ba0a-d3fefe40a623",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "34678ca8-30b4-4f38-acb5-16e1c4841f0f",
+            "costCodeCode": "60924008",
+            "costCodeDescription": "Gutter Type 2 (8 Foot)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "23981446-ab86-4b78-bd2f-d790c9d71d8f",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "62700002",
+        "description": "Thermoplastic Pavement Marking",
+        "status": "active",
+        "ownerCode": "627-00002",
+        "contractQuantity": 4133.0,
+        "unitOfMeasure": "SF",
+        "unitPrice": 7.84,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "23981446-ab86-4b78-bd2f-d790c9d71d8f",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "3de03cf5-2fb4-42b5-8004-614f35341b1f",
+            "costCodeCode": "62700002",
+            "costCodeDescription": "Thermoplastic Pavement Marking"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "62600000",
+        "description": "Mobilization",
+        "status": "active",
+        "ownerCode": "626-00000",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "LS",
+        "unitPrice": 206533.96,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "71f59220-38bc-451f-869b-4655e19165f8",
+            "costCodeCode": "70400000",
+            "costCodeDescription": "TM Electric Vault"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "6a13891f-4a05-4e1f-9e95-2dc534a02f2c",
+            "costCodeCode": "62600000E",
+            "costCodeDescription": "Sub Mob"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "a60405a8-1d02-44c3-86ec-e21bcb73bc3d",
+            "costCodeCode": "62600000F",
+            "costCodeDescription": "Full time equipment"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "fccd0e50-7af8-4735-81a3-257d92153543",
+            "costCodeCode": "70300000",
+            "costCodeDescription": "TM  CBN Pullbox"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "cacffd7c-4ce4-47f7-bf01-85e082f247af",
+            "costCodeCode": "70000000",
+            "costCodeDescription": "TM Bus Stop Removal"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "8c6cc7e6-7e32-4633-9fa5-16ba777347d7",
+            "costCodeCode": "70200000",
+            "costCodeDescription": "TM ex/lay/bf 2\" CBN"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "160f0994-aece-415e-bcaf-8d3d42d46942",
+            "costCodeCode": "62600000B",
+            "costCodeDescription": "Mob & Demob Equipment"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "5b371e04-737c-412b-a37d-278453f85fae",
+            "costCodeCode": "70100000",
+            "costCodeDescription": "TM WL Rock Excavation"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "a067cf45-d139-4e1e-9c18-0d92a2c5832f",
+            "costCodeCode": "62600000D",
+            "costCodeDescription": "Construction Water"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "6a3cd9f0-91e2-4415-91b3-2967b7db9658",
+            "costCodeCode": "62600000C",
+            "costCodeDescription": "PM / Superintendent"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "dc7102c8-564c-444b-90f4-2e7752e16f6f",
+            "costCodeCode": "70500000",
+            "costCodeDescription": "TM Transformer"
+          },
+          {
+            "payItemId": "44e76ff4-55ee-45db-ac0d-d97151a8f890",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "89979831-3b0b-4388-a592-313028aeedd1",
+            "costCodeCode": "70600000",
+            "costCodeDescription": "Drywell Backfill"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "99092b1b-a2c7-4264-89ea-da2fb4c4bdea",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200220",
+        "description": "Remove Ground Sign",
+        "status": "active",
+        "ownerCode": "202-00220",
+        "contractQuantity": 1.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 233.75,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "99092b1b-a2c7-4264-89ea-da2fb4c4bdea",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "24a4d97a-44af-4454-af0a-34d813118853",
+            "costCodeCode": "20200220",
+            "costCodeDescription": "Remove Ground Sign"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "596e05e3-c758-4b37-8963-e20a84def95c",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "20200090",
+        "description": "Remove Curb and Gutter",
+        "status": "active",
+        "ownerCode": "202-00090",
+        "contractQuantity": 297.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 13.5,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "596e05e3-c758-4b37-8963-e20a84def95c",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "b0b579a0-b83f-46e3-9bc4-c2d694e563f3",
+            "costCodeCode": "20200090A",
+            "costCodeDescription": "Remove Curb and Gutter"
+          },
+          {
+            "payItemId": "596e05e3-c758-4b37-8963-e20a84def95c",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "23f85bad-23b9-48d4-bb9b-ab0e17ad359b",
+            "costCodeCode": "20200090B",
+            "costCodeDescription": "Haul & Dispose Curb & Gutter"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "58eb2385-58d1-4f8b-8205-e253436449bf",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "60350018",
+        "description": "18 In Plastic Pipe (HDPE)",
+        "status": "active",
+        "ownerCode": "603-50018",
+        "contractQuantity": 115.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 202.37,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "58eb2385-58d1-4f8b-8205-e253436449bf",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "e934cbc2-1431-4085-8f76-1fdf2e69c26f",
+            "costCodeCode": "60350018C",
+            "costCodeDescription": "Haul & Dispost Excess Dirt (18in HDPE)"
+          },
+          {
+            "payItemId": "58eb2385-58d1-4f8b-8205-e253436449bf",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "e08d67db-c502-4908-98d9-12d0d8f83feb",
+            "costCodeCode": "60350018A",
+            "costCodeDescription": "Ex / Lay / BF Pipe (18in HDPE)"
+          },
+          {
+            "payItemId": "58eb2385-58d1-4f8b-8205-e253436449bf",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "3be62193-2a4c-4966-8bf1-dbd8a33447de",
+            "costCodeCode": "60350018D",
+            "costCodeDescription": "CMP to HDPE (18in)"
+          },
+          {
+            "payItemId": "58eb2385-58d1-4f8b-8205-e253436449bf",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "14c61a6a-7796-453b-84f1-812135a38d73",
+            "costCodeCode": "60350018B",
+            "costCodeDescription": "Furnish & Haul Class 6 (18in HDPE)"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "bcaf8bde-c1d7-4a7c-937d-f76cc55ef695",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "61950480",
+        "description": "6 Inch Plastic Pipe (C900 Hydrant Connections)",
+        "status": "active",
+        "ownerCode": "619-50480",
+        "contractQuantity": 66.0,
+        "unitOfMeasure": "LF",
+        "unitPrice": 223.59,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "bcaf8bde-c1d7-4a7c-937d-f76cc55ef695",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "e2e9e107-4701-4753-9378-84df0e1be631",
+            "costCodeCode": "61950480B",
+            "costCodeDescription": "Furnish & Haul Class 6 - 6\" Waterline"
+          },
+          {
+            "payItemId": "bcaf8bde-c1d7-4a7c-937d-f76cc55ef695",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "450cd2b6-05ef-4027-8d36-e19d3f69b3d6",
+            "costCodeCode": "61950480A",
+            "costCodeDescription": "Ex / Lay / BF Waterline - 6\""
+          },
+          {
+            "payItemId": "bcaf8bde-c1d7-4a7c-937d-f76cc55ef695",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "8a540e88-9263-4fd0-9090-628c34a1b3bd",
+            "costCodeCode": "61950480C",
+            "costCodeDescription": "Haul and Dispose Dirt - 6\" Waterline"
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": "2e78ef39-e38c-49e9-901c-ff812f83a23f",
+        "jobId": "4e94268c-5630-4b7a-bba6-8000efbb65e1",
+        "payItem": "21000816",
+        "description": "Adjust Manhole",
+        "status": "active",
+        "ownerCode": "210-00816",
+        "contractQuantity": 5.0,
+        "unitOfMeasure": "EACH",
+        "unitPrice": 797.98,
+        "stopOverruns": false,
+        "linkedCostCodes": [
+          {
+            "payItemId": "2e78ef39-e38c-49e9-901c-ff812f83a23f",
+            "payItemFactor": 1.0,
+            "isPayItemDriver": false,
+            "costCodeId": "c6a517df-9076-42e8-bad5-805b5310283c",
+            "costCodeCode": "21000816",
+            "costCodeDescription": "Adjust MH Rings"
+          }
+        ],
+        "isDeleted": false
+      }
+    ],
+    "metadata": {}
+  }
+}

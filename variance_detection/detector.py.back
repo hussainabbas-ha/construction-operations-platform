@@ -1,0 +1,419 @@
+"""
+Variance Detection — core engine.
+
+Reads directly from the existing budget_tracking_results and
+quantity_tracking_results DB tables (no new HCSS calls, no new tables).
+
+Cost Variance formula:
+    cost_variance_amount  = expected_budget - actual_cost
+    cost_variance_pct     = (actual_cost / expected_budget) * 100   [utilization]
+    Risk threshold        : utilization >= 75 % → OVER_RISK
+    Sign convention       : positive = budget remaining, negative = over budget
+
+Quantity Variance formula:
+    qty_variance_amount   = planned_quantity - installed_quantity
+    qty_variance_pct      = (installed_quantity / planned_quantity) * 100
+    Risk thresholds       : >= 75 % → NEAR_COMPLETION
+                            >= 100 % → OVER_RISK
+    Sign convention       : positive = quantity remaining, negative = over-run
+
+Billing:
+    Stub — returns empty list with not_implemented flag.
+"""
+from __future__ import annotations
+
+import logging
+from dataclasses import dataclass, field
+from datetime import date as date_type, datetime, timedelta
+from typing import Any
+
+from sqlalchemy.orm import Session
+
+from api.database import BudgetTrackingResult, QuantityTrackingResult
+
+logger = logging.getLogger(__name__)
+
+# ── Thresholds ────────────────────────────────────────────────────────────────
+
+BUDGET_RISK_THRESHOLD = 75.0      # utilization % → OVER_RISK
+QTY_NEAR_THRESHOLD    = 75.0      # percent complete → NEAR_COMPLETION
+QTY_OVER_THRESHOLD    = 100.0     # percent complete → OVER_RISK
+
+
+# ── Result dataclasses ────────────────────────────────────────────────────────
+
+@dataclass(frozen=True)
+class CostVarianceItem:
+    cost_code_id: str
+    cost_code: str
+    cost_code_description: str
+    job_id: str
+    job_name: str
+    business_unit: str
+    expected_budget: float
+    actual_cost: float
+    # Variance
+    cost_variance_amount: float   # expected - actual  (positive = budget remaining, negative = over budget)
+    cost_variance_pct: float      # utilization %
+    # Loss — only when actual > expected
+    loss_amount: float            # max(0, actual - expected)
+    loss_pct: float | None        # (loss_amount / expected) * 100. None when expected is 0.
+    status: str                   # ON_TRACK | OVER_RISK
+
+
+@dataclass(frozen=True)
+class QuantityVarianceItem:
+    cost_code_id: str
+    cost_code: str
+    description: str
+    job_id: str
+    job_code: str
+    unit: str
+    cost_type: str
+    planned_quantity: float
+    installed_quantity: float
+    remaining_quantity: float
+    # Variance
+    qty_variance_amount: float    # planned - installed  (positive = remaining, negative = over-run)
+    qty_variance_pct: float       # percent complete
+    status: str                   # ON_TRACK | NEAR_COMPLETION | OVER_RISK
+    alert: bool
+
+
+@dataclass
+class VarianceSummary:
+    period_start: str
+    period_end: str
+    total_items: int
+    at_risk: int
+    # Cost-specific
+    total_expected_budget: float = 0.0
+    total_actual_cost: float = 0.0
+    total_cost_variance: float = 0.0   # sum of (actual - expected)
+    # Quantity-specific
+    near_completion: int = 0
+    over_risk: int = 0
+
+
+# ── Date helpers ──────────────────────────────────────────────────────────────
+
+def _date_list(start_date: str, end_date: str) -> list[str]:
+    """Return inclusive list of YYYY-MM-DD strings."""
+    dates: list[str] = []
+    cur = datetime.fromisoformat(start_date)
+    end = datetime.fromisoformat(end_date)
+    while cur <= end:
+        dates.append(cur.strftime("%Y-%m-%d"))
+        cur += timedelta(days=1)
+    return dates
+
+
+# ── Variance calculators ──────────────────────────────────────────────────────
+
+def _calc_cost_variance(row: BudgetTrackingResult) -> CostVarianceItem:
+    expected = row.expected_budget or 0.0
+    actual   = row.actual_cost or 0.0
+
+    if expected > 0:
+        utilization = round((actual / expected) * 100, 2)
+    else:
+        utilization = None  # expected_budget is 0 — utilization is undefined
+
+    variance_amount = round(expected - actual, 2)   # positive = budget remaining, negative = over budget
+    loss_amount = round(max(0.0, actual - expected), 2)
+    loss_pct = round((loss_amount / expected) * 100, 2) if expected > 0 else None
+
+    if expected <= 0:
+        status = "OVER_RISK" if actual > 0 else "ON_TRACK"
+    elif utilization >= BUDGET_RISK_THRESHOLD:
+        status = "OVER_RISK"
+    else:
+        status = "ON_TRACK"
+
+    return CostVarianceItem(
+        cost_code_id=row.cost_code_id,
+        cost_code=row.cost_code,
+        cost_code_description=row.cost_code_description,
+        job_id=row.job_id,
+        job_name=row.job_name,
+        business_unit=row.business_unit or "N/A",
+        expected_budget=round(expected, 2),
+        actual_cost=round(actual, 2),
+        cost_variance_amount=variance_amount,
+        cost_variance_pct=utilization,
+        loss_amount=loss_amount,
+        loss_pct=loss_pct,
+        status=status,
+    )
+
+
+def _calc_qty_variance(row: QuantityTrackingResult) -> QuantityVarianceItem:
+    planned   = row.planned_quantity or 0.0
+    installed = row.installed_quantity or 0.0
+
+    if planned > 0:
+        pct = round((installed / planned) * 100, 2)
+    else:
+        pct = 0.0
+
+    variance_amount  = round(planned - installed, 4)   # positive = remaining, negative = over-run
+    remaining        = round(max(0.0, planned - installed), 4)
+
+    if pct >= QTY_OVER_THRESHOLD:
+        status = "OVER_RISK"
+    elif pct >= QTY_NEAR_THRESHOLD:
+        status = "NEAR_COMPLETION"
+    else:
+        status = "ON_TRACK"
+
+    return QuantityVarianceItem(
+        cost_code_id=row.cost_code_id,
+        cost_code=row.cost_code,
+        description=row.description,
+        job_id=row.job_id,
+        job_code=row.job_code,
+        unit=row.unit,
+        cost_type=row.cost_type,
+        planned_quantity=round(planned, 4),
+        installed_quantity=round(installed, 4),
+        remaining_quantity=remaining,
+        qty_variance_amount=variance_amount,
+        qty_variance_pct=pct,
+        status=status,
+        alert=pct >= QTY_NEAR_THRESHOLD,
+    )
+
+
+# ── Aggregation helpers ───────────────────────────────────────────────────────
+
+def _aggregate_cost_rows(rows: list[BudgetTrackingResult]) -> list[CostVarianceItem]:
+    """
+    Aggregate DB rows by (job_id, cost_code_id) across multiple dates,
+    summing actual_cost while keeping expected_budget from the latest row,
+    then recalculate variance and status on the totals.
+    """
+    agg: dict[tuple[str, str], dict[str, Any]] = {}
+
+    for row in rows:
+        if not (row.cost_code or "").strip():
+            continue
+        key = (row.job_id, row.cost_code_id)
+        if key in agg:
+            agg[key]["actual_cost"] += row.actual_cost or 0.0
+        else:
+            agg[key] = {
+                "cost_code_id":          row.cost_code_id,
+                "cost_code":             row.cost_code,
+                "cost_code_description": row.cost_code_description,
+                "job_id":                row.job_id,
+                "job_name":              row.job_name,
+                "business_unit":         row.business_unit or "N/A",
+                "expected_budget":       row.expected_budget or 0.0,
+                "actual_cost":           row.actual_cost or 0.0,
+            }
+
+    results: list[CostVarianceItem] = []
+    for d in agg.values():
+        expected = d["expected_budget"]
+        actual   = d["actual_cost"]
+
+        if expected > 0:
+            utilization = round((actual / expected) * 100, 2)
+        else:
+            utilization = None  # expected_budget is 0 — utilization is undefined
+
+        if expected <= 0:
+            status = "OVER_RISK" if actual > 0 else "ON_TRACK"
+        elif utilization >= BUDGET_RISK_THRESHOLD:
+            status = "OVER_RISK"
+        else:
+            status = "ON_TRACK"
+
+        loss_amount = round(max(0.0, actual - expected), 2)
+        loss_pct = round((loss_amount / expected) * 100, 2) if expected > 0 else None
+
+        results.append(CostVarianceItem(
+            cost_code_id=d["cost_code_id"],
+            cost_code=d["cost_code"],
+            cost_code_description=d["cost_code_description"],
+            job_id=d["job_id"],
+            job_name=d["job_name"],
+            business_unit=d["business_unit"],
+            expected_budget=round(expected, 2),
+            actual_cost=round(actual, 2),
+            cost_variance_amount=round(expected - actual, 2),  # positive = budget remaining
+            cost_variance_pct=utilization,
+            loss_amount=loss_amount,
+            loss_pct=loss_pct,
+            status=status,
+        ))
+
+    return results
+
+
+def _aggregate_qty_rows(rows: list[QuantityTrackingResult]) -> list[QuantityVarianceItem]:
+    """
+    Aggregate DB rows by (job_id, cost_code_id) across multiple dates,
+    summing installed_quantity, keeping planned_quantity from latest row,
+    then recalculate variance and status.
+    """
+    agg: dict[tuple[str, str], dict[str, Any]] = {}
+
+    for row in rows:
+        key = (row.job_id, row.cost_code_id)
+        if key in agg:
+            agg[key]["installed_quantity"] += row.installed_quantity or 0.0
+        else:
+            agg[key] = {
+                "cost_code_id":      row.cost_code_id,
+                "cost_code":         row.cost_code,
+                "description":       row.description,
+                "job_id":            row.job_id,
+                "job_code":          row.job_code,
+                "unit":              row.unit,
+                "cost_type":         row.cost_type,
+                "planned_quantity":  row.planned_quantity or 0.0,
+                "installed_quantity": row.installed_quantity or 0.0,
+            }
+
+    results: list[QuantityVarianceItem] = []
+    for d in agg.values():
+        planned   = d["planned_quantity"]
+        installed = d["installed_quantity"]
+        pct       = round((installed / planned) * 100, 2) if planned > 0 else 0.0
+        remaining = round(max(0.0, planned - installed), 4)
+
+        if pct >= QTY_OVER_THRESHOLD:
+            status = "OVER_RISK"
+        elif pct >= QTY_NEAR_THRESHOLD:
+            status = "NEAR_COMPLETION"
+        else:
+            status = "ON_TRACK"
+
+        results.append(QuantityVarianceItem(
+            cost_code_id=d["cost_code_id"],
+            cost_code=d["cost_code"],
+            description=d["description"],
+            job_id=d["job_id"],
+            job_code=d["job_code"],
+            unit=d["unit"],
+            cost_type=d["cost_type"],
+            planned_quantity=round(planned, 4),
+            installed_quantity=round(installed, 4),
+            remaining_quantity=remaining,
+            qty_variance_amount=round(planned - installed, 4),  # positive = remaining
+            qty_variance_pct=pct,
+            status=status,
+            alert=pct >= QTY_NEAR_THRESHOLD,
+        ))
+
+    return results
+
+
+# ── Public query functions ────────────────────────────────────────────────────
+
+def get_cost_variance(
+    db: Session,
+    start_date: str,
+    end_date: str,
+    *,
+    job_id: str | None = None,
+    business_unit: str | None = None,
+    cost_code: str | None = None,
+    status_filter: str | None = None,
+) -> tuple[list[CostVarianceItem], VarianceSummary]:
+    """
+    Query budget_tracking_results for the date range, compute cost variance,
+    apply optional filters, and return (items, summary).
+    """
+    dates = _date_list(start_date, end_date)
+
+    rows: list[BudgetTrackingResult] = (
+        db.query(BudgetTrackingResult)
+        .filter(BudgetTrackingResult.tracking_date.in_(dates))
+        .all()
+    )
+
+    logger.info(
+        "Cost variance query: %s to %s → %d raw rows",
+        start_date, end_date, len(rows),
+    )
+
+    items = _aggregate_cost_rows(rows)
+
+    # Optional filters
+    if job_id:
+        items = [i for i in items if i.job_id == job_id]
+    if business_unit:
+        items = [i for i in items if i.business_unit == business_unit]
+    if cost_code:
+        items = [i for i in items if i.cost_code == cost_code]
+    if status_filter:
+        items = [i for i in items if i.status == status_filter.upper()]
+
+    at_risk = sum(1 for i in items if i.status == "OVER_RISK")
+    total_expected = sum(i.expected_budget for i in items)
+    total_actual   = sum(i.actual_cost for i in items)
+
+    summary = VarianceSummary(
+        period_start=start_date,
+        period_end=end_date,
+        total_items=len(items),
+        at_risk=at_risk,
+        total_expected_budget=round(total_expected, 2),
+        total_actual_cost=round(total_actual, 2),
+        total_cost_variance=round(total_expected - total_actual, 2),  # positive = budget remaining
+    )
+
+    return items, summary
+
+
+def get_quantity_variance(
+    db: Session,
+    start_date: str,
+    end_date: str,
+    *,
+    job_id: str | None = None,
+    cost_type: str | None = None,
+    status_filter: str | None = None,
+) -> tuple[list[QuantityVarianceItem], VarianceSummary]:
+    """
+    Query quantity_tracking_results for the date range, compute quantity variance,
+    apply optional filters, and return (items, summary).
+    """
+    dates = _date_list(start_date, end_date)
+
+    rows: list[QuantityTrackingResult] = (
+        db.query(QuantityTrackingResult)
+        .filter(QuantityTrackingResult.tracking_date.in_(dates))
+        .all()
+    )
+
+    logger.info(
+        "Quantity variance query: %s to %s → %d raw rows",
+        start_date, end_date, len(rows),
+    )
+
+    items = _aggregate_qty_rows(rows)
+
+    # Optional filters
+    if job_id:
+        items = [i for i in items if i.job_id == job_id]
+    if cost_type:
+        items = [i for i in items if i.cost_type == cost_type.lower()]
+    if status_filter:
+        items = [i for i in items if i.status == status_filter.upper()]
+
+    near = sum(1 for i in items if i.status == "NEAR_COMPLETION")
+    over = sum(1 for i in items if i.status == "OVER_RISK")
+
+    summary = VarianceSummary(
+        period_start=start_date,
+        period_end=end_date,
+        total_items=len(items),
+        at_risk=near + over,
+        near_completion=near,
+        over_risk=over,
+    )
+
+    return items, summary
